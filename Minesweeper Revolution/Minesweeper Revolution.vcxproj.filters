@@ -13,10 +13,54 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{1537fa2f-2772-4c89-850b-9b26e1454fdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Textures">
+      <UniqueIdentifier>{35ad3488-d0f1-4a1a-92de-d24b4625c6d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Audio">
+      <UniqueIdentifier>{115468cb-a612-4656-bd55-bf5b678c0cd7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Default.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Empty0.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Empty1.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Empty2.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Empty3.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Empty4.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Empty5.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Empty6.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Empty7.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Empty8.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Mine.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

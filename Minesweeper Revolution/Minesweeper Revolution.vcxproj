@@ -125,6 +125,19 @@
   <ItemGroup>
     <ClCompile Include="game.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Default.png" />
+    <Image Include="Empty0.png" />
+    <Image Include="Empty1.png" />
+    <Image Include="Empty2.png" />
+    <Image Include="Empty3.png" />
+    <Image Include="Empty4.png" />
+    <Image Include="Empty5.png" />
+    <Image Include="Empty6.png" />
+    <Image Include="Empty7.png" />
+    <Image Include="Empty8.png" />
+    <Image Include="Mine.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
