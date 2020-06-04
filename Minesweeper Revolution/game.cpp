@@ -1,19 +1,24 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Animation.h"
+
+#define WINDOW_WIDTH 1280
+#define WINDOW_HEIGHT 960
 
 int main() {
-	// Config parameters
-	const int WINDOW_WIDTH = 1280;
-	const int WINDOW_HEIGHT = 960;
-	
 	// Close, minimize, maximize buttons are all configurable through SFML::Style 
 	auto windowStyles = sf::Style::Close | sf::Style::Titlebar;
+
+	// Views
+	sf::FloatRect viewRect(100.0f, 100.0f, 512.0f, 512.0f);
+	sf::View view(viewRect);
+	view.setViewport(sf::FloatRect(0.0f, 0.0f, 512.0f / WINDOW_WIDTH, 512.0f / WINDOW_HEIGHT));
 
 	// Game Parameters
 	bool isGameOver = false;
 
 	// VideoMode: Especifica as configurações de dimensão da tela
-	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "SFML works!", windowStyles);
+	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Minesweeper Revolution", windowStyles);
 
 	// Circle
 	float radius = 100.0;
@@ -30,12 +35,45 @@ int main() {
 	sf::RectangleShape cell(size);
 	cell.setPosition(pos);
 	cell.setFillColor(sf::Color::Blue);
-	cell.setOrigin(size.x / 2.0, size.y /2.0);
+	cell.setOrigin(size / 2.0f);
 	cell.setTexture(&cellTex);
 
+	// Animation
 
+	// Spritesheet
+	const int SPRITESHEET_COLS = 3;
+	const int SPRITESHEET_ROWS = 3;
+	sf::Texture spritesheet;
+	spritesheet.loadFromFile("");
+
+	// sprite_size = (spritesheet_width / rows, spritesheet_height / cols)
+	sf::Vector2u textureSize = spritesheet.getSize();
+	textureSize.x /= SPRITESHEET_COLS;
+	textureSize.y /= SPRITESHEET_ROWS;
+
+	Animation animation(&spritesheet, sf::Vector2u(3, 9), 2.0);
+
+	// Text
+	sf::Font mainFont;
+	if (!mainFont.loadFromFile("OpenSans-Regular.ttf")) {
+		std::cout << "Error while loading font!" << std::endl;
+	}
+	sf::Text minesweeperTitle;
+	minesweeperTitle.setFont(mainFont);
+	minesweeperTitle.setString("Minesweeper Revolution");
+	minesweeperTitle.setCharacterSize(64);
+	minesweeperTitle.setFillColor(sf::Color::Cyan);
+	minesweeperTitle.setStyle(sf::Text::Bold);
+	minesweeperTitle.setPosition(sf::Vector2f(200.0f, 200.0f));
+
+
+	// Adds clocking functionality
+	float deltaTime = 0.0f;
+	sf::Clock clock;
 
 	while (window.isOpen() && !isGameOver) {
+		deltaTime = clock.restart().asSeconds();
+
 		sf::Event evt;
 		while (window.pollEvent(evt)) {
 			if (evt.type == sf::Event::Closed) {
@@ -58,18 +96,25 @@ int main() {
 			// Gets mouse position relative to the window
 			sf::Vector2i mousePos = sf::Mouse::getPosition(window);
 			sf::Vector2f mousePosF = sf::Vector2f(mousePos.x, mousePos.y);
+
+			sf::Vector2f mousePosWorld = window.mapPixelToCoords(mousePos);
 			//cell.setPosition(mousePos.x, mousePos.y);
-			if (cell.getGlobalBounds().contains(mousePosF)) {
+			if (cell.getGlobalBounds().contains(mousePosWorld)) {
 				std::cout << "Clicked cell" << std::endl;
 			}
 		}
 
+		animation.Update(0, deltaTime);
+		//cell.setTextureRect(animation.uvRect);
+
 		// Clears screen buffer
-		window.clear();
+		window.clear(sf::Color(120, 23, 40));
+		//window.setView(view);
 
 		// Draws all shapes
 		window.draw(shape);
 		window.draw(cell);
+		window.draw(minesweeperTitle);
 
 		// Displays everything that was rendered so far
 		window.display();

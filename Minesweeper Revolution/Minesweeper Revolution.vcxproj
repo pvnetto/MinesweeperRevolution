@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="game.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +138,12 @@
     <Image Include="Empty7.png" />
     <Image Include="Empty8.png" />
     <Image Include="Mine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Animation.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="OpenSans-Regular.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -22,9 +22,15 @@
     <Filter Include="Assets\Audio">
       <UniqueIdentifier>{115468cb-a612-4656-bd55-bf5b678c0cd7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\Fonts">
+      <UniqueIdentifier>{e9347c94-9d97-4ae2-a105-a32fd00935e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,5 +68,15 @@
     <Image Include="Mine.png">
       <Filter>Assets\Textures</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Animation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="OpenSans-Regular.ttf">
+      <Filter>Assets\Fonts</Filter>
+    </Font>
   </ItemGroup>
 </Project>
