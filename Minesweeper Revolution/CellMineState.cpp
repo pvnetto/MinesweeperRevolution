@@ -27,12 +27,10 @@ CellMineState* CellMineState::getInstance() {
 	return instance;
 }
 
-void CellMineState::handleMessage(Cell& owner, Message msg) { }
-
 void CellMineState::enter(Cell & owner) {
 	owner.setTexture(mineTexture);
 }
 
 void CellMineState::exit(Cell & owner) {}
 
-void CellMineState::handleAction(Cell & owner, Action action) { }
+void CellMineState::handleAction(Cell & owner, Action action, Board& board) { }

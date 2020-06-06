@@ -5,10 +5,9 @@ class CellOpenState : public CellState {
 public:
 	static CellOpenState* getInstance();
 
-	virtual void handleMessage(Cell& owner, Message msg) override;
 	virtual void enter(Cell& owner) override;
 	virtual void exit(Cell& owner) override;
-	virtual void handleAction(Cell& owner, Action action) override;
+	virtual void handleAction(Cell& owner, Action action, Board& board) override;
 
 private:
 	static CellOpenState* instance;

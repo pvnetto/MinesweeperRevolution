@@ -6,6 +6,7 @@
 class Cell {
 public:
 	bool isMine;
+	int idx;
 
 private:
 	int adjacentMines;
@@ -25,16 +26,19 @@ public:
 	const sf::RectangleShape& getShape();
 	const sf::Shape& draw();
 
-	void open();
-	void handleReveal();
+	void setGridIndex(int idx);
+
+	void open(Board& board);
+	void handleReveal(Board& board);
 	void setMine();
 	void incrementMines();
 	void reset();
 
 	int getAdjacentMinesCount();
 
+	void handleMessage(Message msg, Board& board);
 	void switchState(CellState* newState);
-	void handleAction(Action action);
+	void handleAction(Action action, Board& board);
 	void setTexture(sf::Texture* newTexture);
 
 	char toChar() {

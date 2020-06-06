@@ -28,9 +28,9 @@ CellFlaggedState* CellFlaggedState::getInstance() {
 	return instance;
 }
 
-void CellFlaggedState::handleMessage(Cell& owner, Message msg) {
+void CellFlaggedState::handleMessage(Cell& owner, Message msg, Board& board) {
 	if (msg == Message::REVEAL) {
-		owner.handleReveal();
+		owner.handleReveal(board);
 	}
 }
 
@@ -40,19 +40,19 @@ void CellFlaggedState::enter(Cell & owner) {
 
 void CellFlaggedState::exit(Cell & owner) {}
 
-void CellFlaggedState::handleAction(Cell & owner, Action action) {
+void CellFlaggedState::handleAction(Cell& owner, Action action, Board& board) {
 	switch (action) {
-	case Action::LEFT_CLICK:
-		owner.open();
-		break;
-	case Action::ALT_CLICK:
-		owner.switchState(CellIdleState::getInstance());
-		break;
-	case Action::MOUSE_ENTER:
-		owner.setColor(sf::Color(220, 220, 220));
-		break;
-	case Action::MOUSE_LEAVE:
-		owner.setColor(sf::Color::White);
-		break;
+		case Action::LEFT_CLICK:
+			owner.open(board);
+			break;
+		case Action::ALT_CLICK:
+			owner.switchState(CellIdleState::getInstance());
+			break;
+		case Action::MOUSE_ENTER:
+			owner.setColor(sf::Color(220, 220, 220));
+			break;
+		case Action::MOUSE_LEAVE:
+			owner.setColor(sf::Color::White);
+			break;
 	}
 }

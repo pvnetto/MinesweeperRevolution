@@ -1,5 +1,7 @@
 #pragma once
 #include "Cell.h"
+#include "SFML/Graphics.hpp"
+#include <iostream>
 
 class Board {
 private:
@@ -27,6 +29,7 @@ public:
 	void handleEvents(const sf::RenderWindow& window, const sf::Event& evt);
 
 	void generateBoard(int rowCount, int colCount, int numMines);
+	void revealAdjacent(int idx);
 	//void clearBoard();
 	//void resetBoard();
 

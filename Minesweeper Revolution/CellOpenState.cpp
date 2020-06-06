@@ -31,12 +31,10 @@ CellOpenState* CellOpenState::getInstance() {
 	return instance;
 }
 
-void CellOpenState::handleMessage(Cell& owner, Message msg) {}
-
 void CellOpenState::enter(Cell & owner) {
 	owner.setTexture(numberTextures[owner.getAdjacentMinesCount()]);
 }
 
 void CellOpenState::exit(Cell & owner) {}
 
-void CellOpenState::handleAction(Cell & owner, Action action) {}
+void CellOpenState::handleAction(Cell & owner, Action action, Board& board) {}

@@ -5,10 +5,10 @@ class CellFlaggedState : public CellState {
 public:
 	static CellFlaggedState* getInstance();
 
-	virtual void handleMessage(Cell& owner, Message msg) override;
+	virtual void handleMessage(Cell& owner, Message msg, Board& board) override;
 	virtual void enter(Cell& owner) override;
 	virtual void exit(Cell& owner) override;
-	virtual void handleAction(Cell& owner, Action action) override;
+	virtual void handleAction(Cell& owner, Action action, Board& board) override;
 
 private:
 	static CellFlaggedState* instance;

@@ -36,18 +36,18 @@ void Board::handleEvents(const sf::RenderWindow& window, const sf::Event& evt) {
 		if (cells[i]->getShape().getGlobalBounds().contains(mousePosWorld)) {
 			if (evt.type == sf::Event::MouseButtonReleased) {
 				if (evt.mouseButton.button == sf::Mouse::Left) {
-					cells[i]->handleAction(Action::LEFT_CLICK);
+					cells[i]->handleAction(Action::LEFT_CLICK, *this);
 				}
 				else if (evt.mouseButton.button == sf::Mouse::Right) {
-					cells[i]->handleAction(Action::ALT_CLICK);
+					cells[i]->handleAction(Action::ALT_CLICK, *this);
 				}
 			}
 			else {
-				cells[i]->handleAction(Action::MOUSE_ENTER);
+				cells[i]->handleAction(Action::MOUSE_ENTER, *this);
 			}
 		}
 		else {
-			cells[i]->handleAction(Action::MOUSE_LEAVE);
+			cells[i]->handleAction(Action::MOUSE_LEAVE, *this);
 		}
 	}
 }
@@ -64,6 +64,14 @@ void Board::generateBoard(int rows, int cols, int numMines) {
 	}
 
 	populateMines(numMines);
+}
+
+void Board::revealAdjacent(int cellIdx) {
+	std::vector<int> adjacentCells = getAdjacentCells(cellIdx);
+
+	for (std::vector<int>::iterator it = adjacentCells.begin(); it != adjacentCells.end(); ++it) {
+		cells[*it]->handleMessage(Message::REVEAL, *this);
+	}
 }
 
 void Board::instantiateBoard(int rows, int cols) {
@@ -100,6 +108,7 @@ void Board::instantiateCell(const int & col, const int & row) {
 
 	int cellIdx = getCellIndex(row, col);
 	cells[cellIdx] = new Cell(pos, cellSize);
+	cells[cellIdx]->setGridIndex(cellIdx);
 }
 
 bool Board::isGridPositionValid(const int &row, const int &col) {

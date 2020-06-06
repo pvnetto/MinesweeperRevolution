@@ -3,6 +3,8 @@
 #include "CellMineState.h"
 #include "CellOpenState.h"
 
+#include "Board.h"
+
 Cell::Cell() { }
 
 Cell::Cell(sf::Vector2f pos, sf::Vector2f size) {
@@ -34,6 +36,10 @@ const sf::RectangleShape & Cell::getShape() {
 	return this->shape;
 }
 
+void Cell::handleMessage(Message msg, Board & board) {
+	currentState->handleMessage(*this, msg, board);
+}
+
 void Cell::switchState(CellState* newState) {
 	if (this->currentState) {
 		currentState->exit(*this);
@@ -42,8 +48,8 @@ void Cell::switchState(CellState* newState) {
 	this->currentState->enter(*this);
 }
 
-void Cell::handleAction(Action action) {
-	this->currentState->handleAction(*this, action);
+void Cell::handleAction(Action action, Board& board) {
+	this->currentState->handleAction(*this, action, board);
 }
 
 void Cell::setTexture(sf::Texture* newTexture) {
@@ -54,18 +60,25 @@ const sf::Shape & Cell::draw() {
 	return this->shape;
 }
 
-void Cell::open() {
+void Cell::setGridIndex(int idx) {
+	this->idx = idx;
+}
+
+void Cell::open(Board& board) {
 	if (isMine) {
 		switchState(CellMineState::getInstance());
 	}
 	else {
 		switchState(CellOpenState::getInstance());
+		if (adjacentMines == 0) {
+			board.revealAdjacent(idx);
+		}
 	}
 }
 
-void Cell::handleReveal() {
+void Cell::handleReveal(Board& board) {
 	if (!isMine) {
-		open();
+		open(board);
 	}
 }
 
