@@ -48,7 +48,11 @@ int main() {
 	float deltaTime = 0.0f;
 	sf::Clock clock;
 
-	// Board
+	/*	Difficulties
+		9 x 9		-	40
+		16 x 16		-	10
+		30 x 16		-	99
+	*/
 	Board board(window, boardView);
 	board.generateBoard(16, 30, 99);
 	board.print();
@@ -65,10 +69,6 @@ int main() {
 			else if (evt.type == sf::Event::TextEntered) {
 				std::cout << (char)evt.text.unicode << std::endl;
 			}
-		
-			//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
-			//	cell.setColor(sf::Color(std::rand() * 255.f, std::rand() * 255.f, std::rand() * 255.f));
-			//}
 			board.handleEvents(window, evt);
 		}
 

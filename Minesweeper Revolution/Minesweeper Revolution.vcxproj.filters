@@ -31,6 +31,9 @@
     <Filter Include="Header Files\Game\Cell">
       <UniqueIdentifier>{a2c727c6-ece9-4aa1-ace3-2c0e7ea1457f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{78699f04-13cc-4242-9402-e84d1a96984d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp">
@@ -57,41 +60,9 @@
     <ClCompile Include="Math.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Default.png">
-      <Filter>Assets\Textures</Filter>
-    </Image>
-    <Image Include="Empty0.png">
-      <Filter>Assets\Textures</Filter>
-    </Image>
-    <Image Include="Empty1.png">
-      <Filter>Assets\Textures</Filter>
-    </Image>
-    <Image Include="Empty2.png">
-      <Filter>Assets\Textures</Filter>
-    </Image>
-    <Image Include="Empty3.png">
-      <Filter>Assets\Textures</Filter>
-    </Image>
-    <Image Include="Empty4.png">
-      <Filter>Assets\Textures</Filter>
-    </Image>
-    <Image Include="Empty5.png">
-      <Filter>Assets\Textures</Filter>
-    </Image>
-    <Image Include="Empty6.png">
-      <Filter>Assets\Textures</Filter>
-    </Image>
-    <Image Include="Empty7.png">
-      <Filter>Assets\Textures</Filter>
-    </Image>
-    <Image Include="Empty8.png">
-      <Filter>Assets\Textures</Filter>
-    </Image>
-    <Image Include="Mine.png">
-      <Filter>Assets\Textures</Filter>
-    </Image>
+    <ClCompile Include="CellFlaggedState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -109,9 +80,6 @@
     <ClInclude Include="GameManager.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Math.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Cell.h">
       <Filter>Header Files\Game\Cell</Filter>
     </ClInclude>
@@ -121,10 +89,69 @@
     <ClInclude Include="CellState.h">
       <Filter>Header Files\Game\Cell</Filter>
     </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="CellMineState.h">
+      <Filter>Header Files\Game\Cell</Filter>
+    </ClInclude>
+    <ClInclude Include="CellFlaggedState.h">
+      <Filter>Header Files\Game\Cell</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="OpenSans-Regular.ttf">
       <Filter>Assets\Fonts</Filter>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Cell_0.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_1.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_2.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_3.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_4.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_5.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_6.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_7.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_8.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_Bomb.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_Bomb_Red.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_Bomb_X.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_Flagged.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_Idle.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_Unknown.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_Unknown_Open.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -34,8 +34,13 @@ void Board::handleEvents(const sf::RenderWindow& window, const sf::Event& evt) {
 
 	for (int i = 0; i < cellCount; i++) {
 		if (cells[i]->getShape().getGlobalBounds().contains(mousePosWorld)) {
-			if (evt.mouseButton.button == sf::Mouse::Left && evt.type == sf::Event::MouseButtonReleased) {
-				cells[i]->handleAction(Action::LEFT_CLICK);
+			if (evt.type == sf::Event::MouseButtonReleased) {
+				if (evt.mouseButton.button == sf::Mouse::Left) {
+					cells[i]->handleAction(Action::LEFT_CLICK);
+				}
+				else if (evt.mouseButton.button == sf::Mouse::Right) {
+					cells[i]->handleAction(Action::ALT_CLICK);
+				}
 			}
 			else {
 				cells[i]->handleAction(Action::MOUSE_ENTER);

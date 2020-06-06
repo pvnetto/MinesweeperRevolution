@@ -1,6 +1,7 @@
 #pragma once
 #include "Message.h"
 #include "Action.h"
+#include "SFML/Graphics.hpp"
 
 class Cell;
 

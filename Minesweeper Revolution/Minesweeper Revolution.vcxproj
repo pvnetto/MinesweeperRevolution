@@ -126,6 +126,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Cell.cpp" />
+    <ClCompile Include="CellFlaggedState.cpp" />
     <ClCompile Include="CellIdleState.cpp" />
     <ClCompile Include="CellState.cpp" />
     <ClCompile Include="game.cpp" />
@@ -133,24 +134,13 @@
     <ClCompile Include="Snippets.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Default.png" />
-    <Image Include="Empty0.png" />
-    <Image Include="Empty1.png" />
-    <Image Include="Empty2.png" />
-    <Image Include="Empty3.png" />
-    <Image Include="Empty4.png" />
-    <Image Include="Empty5.png" />
-    <Image Include="Empty6.png" />
-    <Image Include="Empty7.png" />
-    <Image Include="Empty8.png" />
-    <Image Include="Mine.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Action.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="Cell.h" />
+    <ClInclude Include="CellFlaggedState.h" />
     <ClInclude Include="CellIdleState.h" />
+    <ClInclude Include="CellMineState.h" />
     <ClInclude Include="CellState.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Math.h" />
@@ -158,6 +148,24 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="OpenSans-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Cell_0.png" />
+    <Image Include="Cell_1.png" />
+    <Image Include="Cell_2.png" />
+    <Image Include="Cell_3.png" />
+    <Image Include="Cell_4.png" />
+    <Image Include="Cell_5.png" />
+    <Image Include="Cell_6.png" />
+    <Image Include="Cell_7.png" />
+    <Image Include="Cell_8.png" />
+    <Image Include="Cell_Bomb.png" />
+    <Image Include="Cell_Bomb_Red.png" />
+    <Image Include="Cell_Bomb_X.png" />
+    <Image Include="Cell_Flagged.png" />
+    <Image Include="Cell_Idle.png" />
+    <Image Include="Cell_Unknown.png" />
+    <Image Include="Cell_Unknown_Open.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
