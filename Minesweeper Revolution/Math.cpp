@@ -21,7 +21,7 @@ std::vector<int> msrevo::Math::sampleFromRange(int size, int randCount) {
 	std::random_device rd;
 	std::mt19937 gen(rd());
 
-	std::unordered_set<int> elems = pickSet(size, randCount, gen);
+	std::unordered_set<int> elems = pickSet(size - 1, randCount, gen);
 
 	std::vector<int> result(elems.begin(), elems.end());
 	std::shuffle(result.begin(), result.end(), gen);

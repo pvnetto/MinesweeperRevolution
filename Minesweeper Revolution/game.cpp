@@ -51,6 +51,7 @@ int main() {
 	// Board
 	Board board(window, boardView);
 	board.generateBoard(16, 30, 99);
+	board.print();
 	
 
 	while (window.isOpen()) {

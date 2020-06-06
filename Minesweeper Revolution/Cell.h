@@ -1,13 +1,14 @@
 #pragma once
 #include "CellState.h"
 #include "SFML/Graphics.hpp"
+#include <iostream>
 
 class Cell {
 public:
 	bool isMine;
 
 private:
-	int adjacentMines = 0;
+	int adjacentMines;
 
 	sf::RectangleShape shape;
 
@@ -32,5 +33,9 @@ public:
 	void switchState(CellState* newState);
 	void handleAction(Action action);
 	void setTexture(sf::Texture* newTexture);
+
+	char toChar() {
+		return isMine ? '*' : adjacentMines + '0';
+	}
 
 };

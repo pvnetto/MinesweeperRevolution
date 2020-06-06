@@ -27,6 +27,26 @@ void Board::draw(sf::RenderWindow& window) {
 	}
 }
 
+void Board::handleEvents(const sf::RenderWindow& window, const sf::Event& evt) {
+	sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+	sf::Vector2f mousePosF = sf::Vector2f(mousePos.x, mousePos.y);
+	sf::Vector2f mousePosWorld = window.mapPixelToCoords(mousePos);
+
+	for (int i = 0; i < cellCount; i++) {
+		if (cells[i]->getShape().getGlobalBounds().contains(mousePosWorld)) {
+			if (evt.mouseButton.button == sf::Mouse::Left && evt.type == sf::Event::MouseButtonReleased) {
+				cells[i]->handleAction(Action::LEFT_CLICK);
+			}
+			else {
+				cells[i]->handleAction(Action::MOUSE_ENTER);
+			}
+		}
+		else {
+			cells[i]->handleAction(Action::MOUSE_LEAVE);
+		}
+	}
+}
+
 void Board::generateBoard(int rows, int cols, int numMines) {
 	instantiateBoard(rows, cols);
 
@@ -77,33 +97,60 @@ void Board::instantiateCell(const int & col, const int & row) {
 	cells[cellIdx] = new Cell(pos, cellSize);
 }
 
-void Board::populateMines(int numMines) {
-	std::vector<int> mineIndices = msrevo::Math::sampleFromRange(this->cellCount, numMines);
-	for (std::vector<int>::iterator it = mineIndices.begin(); it != mineIndices.end(); ++it) {
+bool Board::isGridPositionValid(const int &row, const int &col) {
+	return row >= 0 && row < rows && col >= 0 && col < cols;
+}
 
+std::vector<int> Board::getAdjacentCells(int cellIdx) {
+	int row, col;
+	getCellRowCol(cellIdx, row, col);
+
+	std::vector<int> adjacentCells;
+	for (int i = -1; i <= 1; i++) {
+		for (int j = -1; j <= 1; j++) {
+
+			if (i != 0 || j != 0) {
+				if (isGridPositionValid(row + i, col + j)) {
+					adjacentCells.push_back(getCellIndex(row + i, col + j));
+				}
+			}
+
+		}
 	}
+
+	return adjacentCells;
 }
 
 int Board::getCellCount() {
 	return cellCount;
 }
 
-void Board::handleEvents(const sf::RenderWindow& window, const sf::Event& evt) {
-	sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-	sf::Vector2f mousePosF = sf::Vector2f(mousePos.x, mousePos.y);
-	sf::Vector2f mousePosWorld = window.mapPixelToCoords(mousePos);
-
-	for (int i = 0; i < cellCount; i++) {
-		if (cells[i]->getShape().getGlobalBounds().contains(mousePosWorld)) {
-			if (evt.mouseButton.button == sf::Mouse::Left && evt.type == sf::Event::MouseButtonReleased) {
-				cells[i]->handleAction(Action::LEFT_CLICK);
-			}
-			else {
-				cells[i]->handleAction(Action::MOUSE_ENTER);
-			}
-		}
-		else {
-			cells[i]->handleAction(Action::MOUSE_LEAVE);
-		}
+void Board::populateMines(int numMines) {
+	std::vector<int> mineIndices = msrevo::Math::sampleFromRange(this->cellCount, numMines);
+	std::cout << mineIndices.size() << std::endl;
+	for (std::vector<int>::iterator it = mineIndices.begin(); it != mineIndices.end(); ++it) {
+		placeMine(*it);
 	}
+}
+
+void Board::placeMine(int mineIdx) {
+	cells[mineIdx]->setMine();
+
+	std::vector<int> adjacentCells = getAdjacentCells(mineIdx);
+	for (std::vector<int>::iterator it = adjacentCells.begin(); it != adjacentCells.end(); ++it) {
+		cells[*it]->incrementMines();
+	}
+}
+
+void Board::print() {
+
+	for (int i = 0; i < rows; i++) {
+		std::string row = "";
+		for (int j = 0; j < cols; j++) {
+			Cell* currentCell = cells[getCellIndex(i, j)];
+			row += currentCell->toChar();
+		}
+		std::cout << row << std::endl;
+	}
+
 }

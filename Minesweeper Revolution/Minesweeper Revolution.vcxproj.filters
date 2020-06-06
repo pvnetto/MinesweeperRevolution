@@ -28,6 +28,9 @@
     <Filter Include="Header Files\Game">
       <UniqueIdentifier>{27326eb8-2d5f-4ce4-859a-951985c97870}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game\Cell">
+      <UniqueIdentifier>{a2c727c6-ece9-4aa1-ace3-2c0e7ea1457f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp">
@@ -97,15 +100,6 @@
     <ClInclude Include="Board.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Cell.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="CellIdleState.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="CellState.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Message.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
@@ -117,6 +111,15 @@
     </ClInclude>
     <ClInclude Include="Math.h">
       <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Cell.h">
+      <Filter>Header Files\Game\Cell</Filter>
+    </ClInclude>
+    <ClInclude Include="CellIdleState.h">
+      <Filter>Header Files\Game\Cell</Filter>
+    </ClInclude>
+    <ClInclude Include="CellState.h">
+      <Filter>Header Files\Game\Cell</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

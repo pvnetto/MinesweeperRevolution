@@ -3,7 +3,7 @@
 
 class Board {
 private:
-	// Refactor to grid
+	// TODO: Refactor to grid template class
 	Cell** cells;
 
 	// Board Dimensions
@@ -31,12 +31,16 @@ public:
 	//void resetBoard();
 
 	int getCellCount();
+
+	void print();
 private:
+	// Grid Methods
 	void instantiateBoard(int rows, int cols);
 	void updateBoardDimensions();
-
 	void instantiateCell(const int& col, const int& row);
-	void populateMines(int numMines);
+
+	std::vector<int> getAdjacentCells(int cellIdx);
+	bool isGridPositionValid(const int &row, const int &col);
 
 	inline int getCellIndex(int row, int col) {
 		return (row * cols) + col;
@@ -50,4 +54,8 @@ private:
 	inline float getBoardHeight() {
 		return (boardYEnd - boardYStart);
 	}
+
+	// Board Methods
+	void populateMines(int numMines);
+	void placeMine(int mineIdx);
 };
