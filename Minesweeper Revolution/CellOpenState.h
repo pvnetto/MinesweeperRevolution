@@ -1,9 +1,9 @@
 #pragma once
 #include "CellState.h"
 
-class CellMineState : public CellState {
+class CellOpenState : public CellState {
 public:
-	static CellMineState* getInstance();
+	static CellOpenState* getInstance();
 
 	virtual void handleMessage(Cell& owner, Message msg) override;
 	virtual void enter(Cell& owner) override;
@@ -11,10 +11,10 @@ public:
 	virtual void handleAction(Cell& owner, Action action) override;
 
 private:
-	static CellMineState* instance;
-	static sf::Texture* mineTexture;
+	static CellOpenState* instance;
+	static sf::Texture* numberTextures[9];
 
 private:
-	CellMineState();
-	~CellMineState();
+	CellOpenState();
+	~CellOpenState();
 };

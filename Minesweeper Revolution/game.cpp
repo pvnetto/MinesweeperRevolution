@@ -39,7 +39,7 @@ int main() {
 	minesweeperTitle.setFont(mainFont);
 	minesweeperTitle.setString("Minesweeper Revolution");
 	minesweeperTitle.setCharacterSize(32);
-	minesweeperTitle.setFillColor(sf::Color::Cyan);
+	minesweeperTitle.setFillColor(sf::Color::Red);
 	minesweeperTitle.setStyle(sf::Text::Bold);
 	minesweeperTitle.setPosition(sf::Vector2f(0.0f, 0.0f));
 
@@ -73,7 +73,7 @@ int main() {
 		}
 
 		// Clears screen buffer
-		window.clear(sf::Color(120, 120, 120));
+		window.clear(sf::Color(10, 30, 90));
 
 		// Draw board view
 		window.setView(boardView);

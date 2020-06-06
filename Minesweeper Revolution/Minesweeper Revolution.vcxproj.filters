@@ -63,6 +63,12 @@
     <ClCompile Include="CellFlaggedState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CellMineState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CellOpenState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -96,6 +102,9 @@
       <Filter>Header Files\Game\Cell</Filter>
     </ClInclude>
     <ClInclude Include="CellFlaggedState.h">
+      <Filter>Header Files\Game\Cell</Filter>
+    </ClInclude>
+    <ClInclude Include="CellOpenState.h">
       <Filter>Header Files\Game\Cell</Filter>
     </ClInclude>
   </ItemGroup>
@@ -132,15 +141,6 @@
     <Image Include="Cell_8.png">
       <Filter>Assets\Textures</Filter>
     </Image>
-    <Image Include="Cell_Bomb.png">
-      <Filter>Assets\Textures</Filter>
-    </Image>
-    <Image Include="Cell_Bomb_Red.png">
-      <Filter>Assets\Textures</Filter>
-    </Image>
-    <Image Include="Cell_Bomb_X.png">
-      <Filter>Assets\Textures</Filter>
-    </Image>
     <Image Include="Cell_Flagged.png">
       <Filter>Assets\Textures</Filter>
     </Image>
@@ -151,6 +151,15 @@
       <Filter>Assets\Textures</Filter>
     </Image>
     <Image Include="Cell_Unknown_Open.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_Mine.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_Mine_Red.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="Cell_Mine_X.png">
       <Filter>Assets\Textures</Filter>
     </Image>
   </ItemGroup>

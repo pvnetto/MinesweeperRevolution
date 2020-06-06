@@ -128,6 +128,8 @@
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="CellFlaggedState.cpp" />
     <ClCompile Include="CellIdleState.cpp" />
+    <ClCompile Include="CellMineState.cpp" />
+    <ClCompile Include="CellOpenState.cpp" />
     <ClCompile Include="CellState.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="Math.cpp" />
@@ -141,6 +143,7 @@
     <ClInclude Include="CellFlaggedState.h" />
     <ClInclude Include="CellIdleState.h" />
     <ClInclude Include="CellMineState.h" />
+    <ClInclude Include="CellOpenState.h" />
     <ClInclude Include="CellState.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Math.h" />
@@ -159,9 +162,9 @@
     <Image Include="Cell_6.png" />
     <Image Include="Cell_7.png" />
     <Image Include="Cell_8.png" />
-    <Image Include="Cell_Bomb.png" />
-    <Image Include="Cell_Bomb_Red.png" />
-    <Image Include="Cell_Bomb_X.png" />
+    <Image Include="Cell_Mine.png" />
+    <Image Include="Cell_Mine_Red.png" />
+    <Image Include="Cell_Mine_X.png" />
     <Image Include="Cell_Flagged.png" />
     <Image Include="Cell_Idle.png" />
     <Image Include="Cell_Unknown.png" />

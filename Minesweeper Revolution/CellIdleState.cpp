@@ -30,7 +30,7 @@ CellIdleState* CellIdleState::getInstance() {
 
 void CellIdleState::handleMessage(Cell& owner, Message msg) {
 	if (msg == Message::REVEAL) {
-		owner.open();
+		owner.handleReveal();
 	}
 }
 

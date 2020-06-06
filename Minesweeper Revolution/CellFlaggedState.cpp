@@ -30,9 +30,7 @@ CellFlaggedState* CellFlaggedState::getInstance() {
 
 void CellFlaggedState::handleMessage(Cell& owner, Message msg) {
 	if (msg == Message::REVEAL) {
-		if (!owner.isMine) {
-			owner.open();
-		}
+		owner.handleReveal();
 	}
 }
 

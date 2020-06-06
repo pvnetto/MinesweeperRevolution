@@ -26,9 +26,12 @@ public:
 	const sf::Shape& draw();
 
 	void open();
+	void handleReveal();
 	void setMine();
 	void incrementMines();
 	void reset();
+
+	int getAdjacentMinesCount();
 
 	void switchState(CellState* newState);
 	void handleAction(Action action);

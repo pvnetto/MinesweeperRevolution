@@ -1,5 +1,7 @@
 #include "Cell.h"
 #include "CellIdleState.h"
+#include "CellMineState.h"
+#include "CellOpenState.h"
 
 Cell::Cell() { }
 
@@ -53,7 +55,18 @@ const sf::Shape & Cell::draw() {
 }
 
 void Cell::open() {
-	printf("Opening cell!\n");
+	if (isMine) {
+		switchState(CellMineState::getInstance());
+	}
+	else {
+		switchState(CellOpenState::getInstance());
+	}
+}
+
+void Cell::handleReveal() {
+	if (!isMine) {
+		open();
+	}
 }
 
 void Cell::setMine() {
@@ -68,4 +81,8 @@ void Cell::reset() {
 	this->isMine = false;
 	this->adjacentMines = 0;
 	this->switchState(CellIdleState::getInstance());
+}
+
+int Cell::getAdjacentMinesCount() {
+	return this->adjacentMines;
 }
