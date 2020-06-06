@@ -2,21 +2,21 @@
 #include "Cell.h"
 
 CellIdleState* CellIdleState::instance = NULL;
-sf::Texture* CellIdleState::texture = NULL;
+sf::Texture* CellIdleState::idleTexture = NULL;
 
 CellIdleState::CellIdleState() {
-	if (texture == NULL) {
-		texture = new sf::Texture();
-		texture->loadFromFile("Default.png");
+	if (idleTexture == NULL) {
+		idleTexture = new sf::Texture();
+		idleTexture->loadFromFile("Default.png");
 	}
 }
 
 CellIdleState::~CellIdleState() {
 	delete this->instance;
-	delete this->texture;
+	delete this->idleTexture;
 
 	this->instance = nullptr;
-	this->texture = nullptr;
+	this->idleTexture = nullptr;
 }
 
 CellIdleState* CellIdleState::getInstance() {
@@ -34,12 +34,28 @@ void CellIdleState::handleMessage(Cell& owner, Message msg) {
 }
 
 void CellIdleState::enter(Cell & owner) {
-	owner.setTexture(texture);
+	owner.setTexture(idleTexture);
 }
 
-void CellIdleState::exit(Cell & owner) {
+void CellIdleState::exit(Cell & owner) { }
+
+void CellIdleState::handleAction(Cell & owner, Action action) {
+	switch (action) {
+		case Action::LEFT_CLICK:
+			open(owner);
+			break;
+		case Action::ALT_CLICK:
+			break;
+		case Action::MOUSE_ENTER:
+			owner.setColor(sf::Color(220, 220, 220));
+			break;
+		case Action::MOUSE_LEAVE:
+			owner.setColor(sf::Color::White);
+			break;
+	}
 }
 
-void CellIdleState::handleClick() {
-	
+
+void CellIdleState::open(Cell & owner) {
+	printf("Clicked cell! \n");
 }

@@ -1,6 +1,8 @@
 #include "Cell.h"
 #include "CellIdleState.h"
 
+Cell::Cell() { }
+
 Cell::Cell(sf::Vector2f pos, sf::Vector2f size) {
 	this->setPosition(pos);
 	this->setSize(size);
@@ -8,7 +10,10 @@ Cell::Cell(sf::Vector2f pos, sf::Vector2f size) {
 }
 
 Cell::~Cell() {
-	this->currentState = nullptr;
+	printf("Destroying");
+	if (this->currentState) {
+		this->currentState = nullptr;
+	}
 }
 
 void Cell::setPosition(sf::Vector2f newPos) {
@@ -24,6 +29,10 @@ void Cell::setColor(sf::Color color) {
 	this->shape.setFillColor(color);
 }
 
+const sf::RectangleShape & Cell::getShape() {
+	return this->shape;
+}
+
 void Cell::switchState(CellState* newState) {
 	if (this->currentState) {
 		currentState->exit(*this);
@@ -32,8 +41,8 @@ void Cell::switchState(CellState* newState) {
 	this->currentState->enter(*this);
 }
 
-void Cell::handleClick() {
-	this->currentState->handleClick();
+void Cell::handleAction(Action action) {
+	this->currentState->handleAction(*this, action);
 }
 
 void Cell::setTexture(sf::Texture* newTexture) {

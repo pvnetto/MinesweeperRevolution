@@ -145,11 +145,14 @@
     <Image Include="Mine.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Action.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="CellIdleState.h" />
     <ClInclude Include="CellState.h" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="Message.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="OpenSans-Regular.ttf" />

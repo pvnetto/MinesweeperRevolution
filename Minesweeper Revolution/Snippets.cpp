@@ -21,6 +21,18 @@ void passPointerByReference(int& val) {
 	std::cout << val << std::endl;
 }
 
+/* A memory leak occurs when a pointer goes out of scope without being deleted, making it impossible
+to deallocate the memory, so it's only deallocated when the program is ended. */
+void memoryLeak() {
+	// Will leak memory if variable isn't deleted until end of scope
+	int* ptr{ new int {} };
+
+	// Also a memory leak, because memory isn't deallocated before the pointer is reassigned
+	int myVar = 5;
+	int* otherPtr{ new int {} };
+	otherPtr = &myVar;
+}
+
 int snippet() {
 	/**
 	Static Arrays
