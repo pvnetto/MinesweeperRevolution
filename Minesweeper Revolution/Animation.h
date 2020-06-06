@@ -1,6 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+/// <summary>
+///	Handles animation logic by swapping textures from spritesheets.
+/// </summary>
 class Animation {
 public:
 	Animation(sf::Texture* texture, sf::Vector2u imageCount, float animationDuration);

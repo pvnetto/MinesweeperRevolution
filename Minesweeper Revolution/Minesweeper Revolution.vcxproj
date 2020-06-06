@@ -124,7 +124,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Cell.cpp" />
+    <ClCompile Include="CellIdleState.cpp" />
+    <ClCompile Include="CellState.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="Snippets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Default.png" />
@@ -141,6 +146,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="Board.h" />
+    <ClInclude Include="Cell.h" />
+    <ClInclude Include="CellIdleState.h" />
+    <ClInclude Include="CellState.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="OpenSans-Regular.ttf" />

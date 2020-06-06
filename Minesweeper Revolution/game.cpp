@@ -1,9 +1,24 @@
+#include "Animation.h"
+#include "Cell.h";
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Animation.h"
 
 #define WINDOW_WIDTH 1280
 #define WINDOW_HEIGHT 960
+
+int snippet();
+
+/* A memory leak occurs when a pointer goes out of scope without being deleted, making it impossible
+to deallocate the memory, so it's only deallocated when the program is ended. */
+void memoryLeak() {
+	// Will leak memory if variable isn't deleted until end of scope
+	int* ptr { new int {} };
+
+	// Also a memory leak, because memory isn't deallocated before the pointer is reassigned
+	int myVar = 5;
+	int* otherPtr{ new int {} };
+	otherPtr = &myVar;
+}
 
 int main() {
 	// Close, minimize, maximize buttons are all configurable through SFML::Style 
@@ -32,11 +47,7 @@ int main() {
 	// Rectangle
 	sf::Vector2f size(50.0, 50.0);
 	sf::Vector2f pos(50.0, 50.0);
-	sf::RectangleShape cell(size);
-	cell.setPosition(pos);
-	cell.setFillColor(sf::Color::Blue);
-	cell.setOrigin(size / 2.0f);
-	cell.setTexture(&cellTex);
+	Cell cell(pos, size);
 
 	// Animation
 
@@ -71,6 +82,8 @@ int main() {
 	float deltaTime = 0.0f;
 	sf::Clock clock;
 
+	snippet();
+
 	while (window.isOpen() && !isGameOver) {
 		deltaTime = clock.restart().asSeconds();
 
@@ -89,19 +102,19 @@ int main() {
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
-			cell.setFillColor(sf::Color(std::rand() * 255.f, std::rand() * 255.f, std::rand() * 255.f));
+			cell.setColor(sf::Color(std::rand() * 255.f, std::rand() * 255.f, std::rand() * 255.f));
 		}
 
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-			// Gets mouse position relative to the window
-			sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-			sf::Vector2f mousePosF = sf::Vector2f(mousePos.x, mousePos.y);
+			//// Gets mouse position relative to the window
+			//sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+			//sf::Vector2f mousePosF = sf::Vector2f(mousePos.x, mousePos.y);
 
-			sf::Vector2f mousePosWorld = window.mapPixelToCoords(mousePos);
-			//cell.setPosition(mousePos.x, mousePos.y);
-			if (cell.getGlobalBounds().contains(mousePosWorld)) {
-				std::cout << "Clicked cell" << std::endl;
-			}
+			//sf::Vector2f mousePosWorld = window.mapPixelToCoords(mousePos);
+			////cell.setPosition(mousePos.x, mousePos.y);
+			//if (cell.getGlobalBounds().contains(mousePosWorld)) {
+			//	std::cout << "Clicked cell" << std::endl;
+			//}
 		}
 
 		animation.Update(0, deltaTime);
@@ -113,7 +126,7 @@ int main() {
 
 		// Draws all shapes
 		window.draw(shape);
-		window.draw(cell);
+		window.draw(cell.draw());
 		window.draw(minesweeperTitle);
 
 		// Displays everything that was rendered so far
