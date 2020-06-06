@@ -61,7 +61,7 @@ const sf::Shape & Cell::draw() {
 }
 
 void Cell::setGridIndex(int idx) {
-	this->idx = idx;
+	this->gridIndex = idx;
 }
 
 void Cell::open(Board& board) {
@@ -71,7 +71,7 @@ void Cell::open(Board& board) {
 	else {
 		switchState(CellOpenState::getInstance());
 		if (adjacentMines == 0) {
-			board.revealAdjacent(idx);
+			board.revealAdjacent(gridIndex);
 		}
 	}
 }
@@ -93,6 +93,7 @@ void Cell::incrementMines() {
 void Cell::reset() {
 	this->isMine = false;
 	this->adjacentMines = 0;
+	this->gridIndex = -1;
 	this->switchState(CellIdleState::getInstance());
 }
 

@@ -34,6 +34,9 @@
     <Filter Include="Header Files\Utils">
       <UniqueIdentifier>{78699f04-13cc-4242-9402-e84d1a96984d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Context">
+      <UniqueIdentifier>{7773a1ff-3218-49e2-8c5d-14b0561015ac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp">
@@ -67,6 +70,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CellOpenState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -106,6 +112,12 @@
     </ClInclude>
     <ClInclude Include="CellOpenState.h">
       <Filter>Header Files\Game\Cell</Filter>
+    </ClInclude>
+    <ClInclude Include="ContextManager.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseContext.h">
+      <Filter>Header Files\Context</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
-#include "Board.h";
+#include "GameManager.h";
+#include "Board.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -53,6 +54,8 @@ int main() {
 		16 x 16		-	10
 		30 x 16		-	99
 	*/
+
+	GameManager gameManager = GameManager();
 	Board board(window, boardView);
 	board.generateBoard(16, 30, 99);
 	board.print();

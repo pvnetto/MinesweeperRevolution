@@ -38,7 +38,9 @@ void CellFlaggedState::enter(Cell & owner) {
 	owner.setTexture(flaggedTexture);
 }
 
-void CellFlaggedState::exit(Cell & owner) {}
+void CellFlaggedState::exit(Cell & owner) {
+	owner.setColor(sf::Color::White);
+}
 
 void CellFlaggedState::handleAction(Cell& owner, Action action, Board& board) {
 	switch (action) {

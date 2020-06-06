@@ -6,7 +6,7 @@
 class Cell {
 public:
 	bool isMine;
-	int idx;
+	int gridIndex;
 
 private:
 	int adjacentMines;
@@ -41,7 +41,7 @@ public:
 	void handleAction(Action action, Board& board);
 	void setTexture(sf::Texture* newTexture);
 
-	char toChar() {
+	inline char toChar() {
 		return isMine ? '*' : adjacentMines + '0';
 	}
 

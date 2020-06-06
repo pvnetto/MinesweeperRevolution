@@ -1,18 +1,16 @@
 #pragma once
-#include "Board.h"
 
 class GameManager {
 private:
-	Board board;
-
-	bool isGameOver;
+	bool gameOver;
 	float currentGameTime;
 
 public:
-	void startGame(int rowCount, int colCount);
-	void gameOver();
+	GameManager();
+	~GameManager();
 
-	bool isGameOver() {
-		return isGameOver;
-	}
+	void startGame(int rowCount, int colCount, int numMines);
+	void endGame();
+
+	bool isGameOver();
 };

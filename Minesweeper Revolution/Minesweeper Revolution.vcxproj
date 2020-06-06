@@ -132,12 +132,14 @@
     <ClCompile Include="CellOpenState.cpp" />
     <ClCompile Include="CellState.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Snippets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="BaseContext.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="CellFlaggedState.h" />
@@ -145,6 +147,7 @@
     <ClInclude Include="CellMineState.h" />
     <ClInclude Include="CellOpenState.h" />
     <ClInclude Include="CellState.h" />
+    <ClInclude Include="ContextManager.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Message.h" />

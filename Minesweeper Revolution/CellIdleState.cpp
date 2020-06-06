@@ -38,7 +38,9 @@ void CellIdleState::enter(Cell & owner) {
 	owner.setTexture(idleTexture);
 }
 
-void CellIdleState::exit(Cell & owner) { }
+void CellIdleState::exit(Cell & owner) {
+	owner.setColor(sf::Color::White);
+}
 
 void CellIdleState::handleAction(Cell & owner, Action action, Board& board) {
 	switch (action) {

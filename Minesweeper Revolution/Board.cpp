@@ -2,7 +2,6 @@
 #include "Math.h"
 #include <iostream>
 
-
 Board::Board(const sf::RenderWindow& window, const sf::View& view) {
 	float windowHeight = window.getSize().y;
 	float offsetTop = view.getViewport().top * windowHeight;
