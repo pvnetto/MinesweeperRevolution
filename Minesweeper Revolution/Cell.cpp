@@ -10,7 +10,6 @@ Cell::Cell(sf::Vector2f pos, sf::Vector2f size) {
 }
 
 Cell::~Cell() {
-	printf("Destroying");
 	if (this->currentState) {
 		this->currentState = nullptr;
 	}
@@ -55,4 +54,18 @@ const sf::Shape & Cell::draw() {
 
 void Cell::open() {
 	printf("Opening cell!\n");
+}
+
+void Cell::setMine() {
+	isMine = true;
+}
+
+void Cell::incrementMines() {
+	this->adjacentMines++;
+}
+
+void Cell::reset() {
+	this->isMine = false;
+	this->adjacentMines = 0;
+	this->switchState(CellIdleState::getInstance());
 }

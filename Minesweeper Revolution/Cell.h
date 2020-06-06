@@ -7,6 +7,8 @@ public:
 	bool isMine;
 
 private:
+	int adjacentMines = 0;
+
 	sf::RectangleShape shape;
 
 	CellState* currentState = nullptr;
@@ -23,6 +25,9 @@ public:
 	const sf::Shape& draw();
 
 	void open();
+	void setMine();
+	void incrementMines();
+	void reset();
 
 	void switchState(CellState* newState);
 	void handleAction(Action action);

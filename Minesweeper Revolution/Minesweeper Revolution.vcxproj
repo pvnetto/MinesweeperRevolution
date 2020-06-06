@@ -129,6 +129,7 @@
     <ClCompile Include="CellIdleState.cpp" />
     <ClCompile Include="CellState.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="Math.cpp" />
     <ClCompile Include="Snippets.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -18,6 +18,7 @@ int main() {
 
 	// Close, minimize, maximize buttons are all configurable through SFML::Style 
 	auto windowStyles = sf::Style::Close | sf::Style::Titlebar;
+	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Minesweeper Revolution", windowStyles);
 
 	// Views
 	sf::FloatRect boardRect(0, UI_HEIGHT, WINDOW_WIDTH, BOARD_HEIGHT);
@@ -28,8 +29,6 @@ int main() {
 	sf::View uiView(uiRect);
 	uiView.setViewport(sf::FloatRect(0, 0, 1, UI_HEIGHT_RATIO));
 
-	// VideoMode: Especifica as configurações de dimensão da tela
-	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Minesweeper Revolution", windowStyles);
 
 	// Text
 	sf::Font mainFont;
@@ -69,24 +68,7 @@ int main() {
 			//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
 			//	cell.setColor(sf::Color(std::rand() * 255.f, std::rand() * 255.f, std::rand() * 255.f));
 			//}
-
-			// Gets mouse position relative to the window
-			sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-			sf::Vector2f mousePosF = sf::Vector2f(mousePos.x, mousePos.y);
-			sf::Vector2f mousePosWorld = window.mapPixelToCoords(mousePos);
-
-			//cell.setPosition(mousePos.x, mousePos.y);
-			//if (cell.getShape().getGlobalBounds().contains(mousePosWorld)) {
-			//	if (evt.mouseButton.button == sf::Mouse::Left && evt.type == sf::Event::MouseButtonReleased) {
-			//		cell.handleAction(Action::LEFT_CLICK);
-			//	}
-			//	else {
-			//		cell.handleAction(Action::MOUSE_ENTER);
-			//	}
-			//}
-			//else {
-			//	cell.handleAction(Action::MOUSE_LEAVE);
-			//}
+			board.handleEvents(window, evt);
 		}
 
 		// Clears screen buffer
