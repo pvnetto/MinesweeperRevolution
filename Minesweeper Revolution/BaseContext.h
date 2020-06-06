@@ -1,11 +1,13 @@
 #pragma once
+#include "Entity.h"
 
 class BaseContext {
 protected:
-	virtual void draw() = 0;
-	virtual void handleEvents() = 0;
+	std::vector<Entity*> entities;
+	//virtual void handleEvents() = 0;
 
 public:
-	void run();
+	virtual void handleEvents(const sf::RenderWindow& window, const sf::Event& evt) = 0;
+	virtual void draw(sf::RenderWindow& window) = 0;
 
 };

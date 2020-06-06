@@ -4,10 +4,12 @@
 
 class ContextManager {
 private:
-	BaseContext* currentContext;
+	BaseContext* currentContext = nullptr;
+	sf::RenderWindow* window;
 
 public:
-	void switchContext(BaseContext& newContext);
-	void run();
+	ContextManager(sf::RenderWindow& window);
 
+	void switchContext(BaseContext* newContext);
+	void run();
 };

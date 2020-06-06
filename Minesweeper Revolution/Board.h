@@ -13,6 +13,7 @@ private:
 	int cellCount;
 
 	// View Dimensions
+	sf::View* view;
 	const float verticalOffset = 50.0f;		// TODO: Move this to view building, so the view considers the vertical offset
 	float boardYStart, boardYEnd;
 	float boardMaxWidth;
@@ -22,7 +23,7 @@ private:
 	sf::Vector2f bottomRightCorner;
 
 public:
-	Board(const sf::RenderWindow& window, const sf::View& view);
+	Board(const sf::RenderWindow& window, sf::View& view);
 	~Board();
 
 	void draw(sf::RenderWindow& window);

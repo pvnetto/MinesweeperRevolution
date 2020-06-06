@@ -2,10 +2,11 @@
 #include "Math.h"
 #include <iostream>
 
-Board::Board(const sf::RenderWindow& window, const sf::View& view) {
+Board::Board(const sf::RenderWindow& window, sf::View& view) {
 	float windowHeight = window.getSize().y;
 	float offsetTop = view.getViewport().top * windowHeight;
 
+	this->view = &view;
 	this->boardYStart = offsetTop + verticalOffset;
 	this->boardYEnd = windowHeight - verticalOffset;
 	this->boardMaxWidth = view.getSize().x;
@@ -17,10 +18,12 @@ Board::~Board() {
 		delete cells[i];
 	}
 
+	delete view;
 	delete[] cells;
 }
 
 void Board::draw(sf::RenderWindow& window) {
+	window.setView(*view);
 	for (int i = 0; i < cellCount; i++) {
 		window.draw(cells[i]->draw());
 	}

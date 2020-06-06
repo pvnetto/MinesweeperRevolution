@@ -75,6 +75,12 @@
     <ClCompile Include="GameManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ContextManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameContext.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -117,6 +123,12 @@
       <Filter>Header Files\Context</Filter>
     </ClInclude>
     <ClInclude Include="BaseContext.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="GameContext.h">
       <Filter>Header Files\Context</Filter>
     </ClInclude>
   </ItemGroup>

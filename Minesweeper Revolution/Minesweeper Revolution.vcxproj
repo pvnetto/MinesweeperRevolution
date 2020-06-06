@@ -131,7 +131,9 @@
     <ClCompile Include="CellMineState.cpp" />
     <ClCompile Include="CellOpenState.cpp" />
     <ClCompile Include="CellState.cpp" />
+    <ClCompile Include="ContextManager.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="GameContext.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Snippets.cpp" />
@@ -148,6 +150,8 @@
     <ClInclude Include="CellOpenState.h" />
     <ClInclude Include="CellState.h" />
     <ClInclude Include="ContextManager.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="GameContext.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Message.h" />
