@@ -1,4 +1,4 @@
-#include "Cell.h";
+#include "Board.h";
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -6,18 +6,9 @@
 #define WINDOW_WIDTH 1600.0
 #define WINDOW_HEIGHT 960.0
 
-int getSingleIndex(int row, int col, int numberOfColumnsInArray) {
-	return (row * numberOfColumnsInArray) + col;
+void draw(sf::RenderWindow& window, const sf::Drawable& drawable) {
+	window.draw(drawable);
 }
-
-float lerp(const float& a, const float& b, const float& t) {
-	return (1 - t)*a + t * b;
-}
-
-//sf::Vector2f lerp(sf::Vector2f& res, const sf::Vector2f& a, const sf::Vector2f& b, float t) {
-//	res.x = (1 - t)*a.x + t * b.x;
-//	res.y = (1 - t)*a.y + t * b.y;
-//}
 
 int main() {
 	const float UI_HEIGHT = WINDOW_HEIGHT - BOARD_HEIGHT;
@@ -58,42 +49,10 @@ int main() {
 	float deltaTime = 0.0f;
 	sf::Clock clock;
 
-	// Cells
-	int boardHeight = 16, boardWidth = 30;
-	int cellCount = boardHeight * boardWidth;
-	Cell** cells { new Cell*[cellCount] };
-
-	float verticalOffset = 50.0f;
-
-	float boardYStart = UI_HEIGHT + verticalOffset;
-	float boardYEnd = WINDOW_HEIGHT - verticalOffset;
-	float cellSize = (boardYEnd - boardYStart) / boardHeight;
-
-	float horizontalSpaceNeeded = cellSize * boardWidth;
-	float horizontalOffset = (WINDOW_WIDTH - horizontalSpaceNeeded) / 2.0f;
-
-	sf::Vector2f topLeftCorner(horizontalOffset, boardYStart);
-	sf::Vector2f bottomRightCorner(WINDOW_WIDTH - horizontalOffset, boardYEnd);
-
-	sf::Vector2f size(cellSize, cellSize);
-
-	// Row -> Height -> Y
-	// Col -> Width  -> X
-	for (int j = 0; j < boardWidth; j++) {
-		for (int i = 0; i < boardHeight; i++) {
-			float widthRatio = float(j) / float(boardWidth);
-			float heightRatio = float(i) / float(boardHeight);
-
-			float xPos = lerp(topLeftCorner.x, bottomRightCorner.x, widthRatio);
-			float yPos = lerp(topLeftCorner.y, bottomRightCorner.y, heightRatio);
-
-
-			sf::Vector2f pos(xPos, yPos);
-			pos += (size / 2.0f);
-			int arrayIdx = getSingleIndex(i, j, boardWidth);
-			cells[arrayIdx] = new Cell(pos, size);
-		}
-	}
+	// Board
+	Board board(window, boardView);
+	board.generateBoard(16, 30, 99);
+	
 
 	while (window.isOpen()) {
 		deltaTime = clock.restart().asSeconds();
@@ -135,24 +94,15 @@ int main() {
 
 		// Draw board view
 		window.setView(boardView);
-		for (int i = 0; i < cellCount; i++) {
-			window.draw(cells[i]->draw());
-		}
+		board.draw(window);
 
 		// Draw UI view
 		window.setView(uiView);
-		window.draw(minesweeperTitle);
+		draw(window, minesweeperTitle);
 
 		// Displays everything that was rendered so far
 		window.display();
 	}
-
-	// TODO: This should be in pooling destructor, instead of board
-	for (int i = 0; i < cellCount; i++) {
-		delete cells[i];
-	}
-
-	delete[] cells;
 
 	return 0;
 }

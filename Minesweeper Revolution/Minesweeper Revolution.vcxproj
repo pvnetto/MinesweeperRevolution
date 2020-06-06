@@ -152,6 +152,7 @@
     <ClInclude Include="CellIdleState.h" />
     <ClInclude Include="CellState.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="Math.h" />
     <ClInclude Include="Message.h" />
   </ItemGroup>
   <ItemGroup>
