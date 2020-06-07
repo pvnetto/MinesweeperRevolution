@@ -7,7 +7,7 @@ sf::Texture* CellMineState::mineTexture = NULL;
 CellMineState::CellMineState() {
 	if (mineTexture == NULL) {
 		mineTexture = new sf::Texture();
-		mineTexture->loadFromFile("Cell_Mine.png");
+		mineTexture->loadFromFile("Assets/Cell_Mine.png");
 	}
 }
 

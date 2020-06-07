@@ -7,7 +7,7 @@ sf::Texture* CellOpenState::numberTextures[9];
 CellOpenState::CellOpenState() {
 	for (int i = 0; i <= 8; i++) {
 		numberTextures[i] = new sf::Texture();
-		numberTextures[i]->loadFromFile("Cell_" + std::to_string(i) + ".png");
+		numberTextures[i]->loadFromFile("Assets/Cell_" + std::to_string(i) + ".png");
 	}
 }
 

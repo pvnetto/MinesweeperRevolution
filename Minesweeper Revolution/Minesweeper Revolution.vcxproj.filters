@@ -177,11 +177,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="OpenSans-Regular.ttf">
-      <Filter>Resource Files\Assets\Fonts</Filter>
-    </Font>
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="Cell_0.png">
       <Filter>Resource Files\Assets\Textures</Filter>
     </Image>

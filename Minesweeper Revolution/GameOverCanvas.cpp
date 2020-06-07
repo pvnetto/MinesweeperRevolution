@@ -15,7 +15,7 @@ GameOverCanvas::GameOverCanvas(sf::RenderWindow & window) {
 	Button* quitBtn = new Button("Quit", quitPos, btnSize, new Button::QuitAction(window));
 
 	sf::Vector2f gameOverTextPos = screenCenter - sf::Vector2f(0, 200.0f);
-	font.loadFromFile("OpenSans-Regular.ttf");
+	font.loadFromFile("Assets/pixel.ttf");
 	
 	gameOverText = new sf::Text("Game Over", font, 64);
 	gameOverText->setFillColor(sf::Color::White);

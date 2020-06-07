@@ -8,7 +8,7 @@ sf::Texture* CellFlaggedState::flaggedTexture = NULL;
 CellFlaggedState::CellFlaggedState() {
 	if (flaggedTexture == NULL) {
 		flaggedTexture = new sf::Texture();
-		flaggedTexture->loadFromFile("Cell_Flagged.png");
+		flaggedTexture->loadFromFile("Assets/Cell_Flagged.png");
 	}
 }
 

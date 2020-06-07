@@ -171,9 +171,6 @@
     <ClInclude Include="Theme.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="OpenSans-Regular.ttf" />
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="Cell_0.png" />
     <Image Include="Cell_1.png" />
     <Image Include="Cell_2.png" />

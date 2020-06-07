@@ -9,7 +9,7 @@ PlayerCanvas::PlayerCanvas(sf::RenderWindow & window, sf::View & view) {
 
 	Button* resetBtn = new Button("", viewCenter, sf::Vector2f(50.0f, 50.0f), new Button::RestartAction());
 	resetBtn->setFillColor(sf::Color::White);
-	resetBtn->setTexture("Cell_Mine_Red.png");
+	resetBtn->setTexture("Assets/Cell_Mine_Red.png");
 	entities.push_back(resetBtn);
 }
 

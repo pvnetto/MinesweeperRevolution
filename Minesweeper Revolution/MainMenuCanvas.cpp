@@ -21,7 +21,7 @@ MainMenuCanvas::MainMenuCanvas(sf::RenderWindow & window) {
 	Button* quitBtn = new Button("Quit", quitBtnPos, btnSize, new Button::QuitAction(window));
 
 	sf::Vector2f gameOverTextPos = screenCenter - sf::Vector2f(0, 200.0f);
-	font.loadFromFile("OpenSans-Regular.ttf");
+	font.loadFromFile("Assets/pixel.ttf");
 	sf::Text* gameTitleText = new sf::Text("Minesweeper Revolution", font, 64);
 	gameTitleText->setOrigin(
 		gameTitleText->getLocalBounds().left + gameTitleText->getLocalBounds().width / 2.0f,

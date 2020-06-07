@@ -16,7 +16,7 @@ Button::Button(std::string text, sf::Vector2f pos, sf::Vector2f size, ButtonActi
 	btnBorder.setFillColor(sf::Color::Black);
 
 
-	font.loadFromFile("OpenSans-Regular.ttf");
+	font.loadFromFile("Assets/pixel.ttf");
 	btnText = sf::Text(text, font, 24);
 	btnText.setFillColor(sf::Color::White);
 	btnText.setStyle(sf::Text::Bold);

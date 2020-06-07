@@ -8,7 +8,7 @@ sf::Texture* CellIdleState::idleTexture = NULL;
 CellIdleState::CellIdleState() {
 	if (idleTexture == NULL) {
 		idleTexture = new sf::Texture();
-		idleTexture->loadFromFile("Cell_Idle.png");
+		idleTexture->loadFromFile("Assets/Cell_Idle.png");
 	}
 }
 
