@@ -1,18 +1,25 @@
 #include "GameManager.h"
-#include <iostream>
+#include "GameOverCanvas.h"
 
 GameManager::GameManager() { }
 
 GameManager::~GameManager() { }
 
 void GameManager::startGame(int rowCount, int colCount, int numMines) {
+	isGameOver = false;
 }
 
-void GameManager::endGame() {
-	this->gameOver = true;
-	std::cout << "Game Over" << std::endl;
+void GameManager::endGame(BaseContext& ctx) {
+	if (!isGameOver) {
+		isGameOver = true;
+
+		GameOverCanvas* gameOverCanvas = ctx.findEntity<GameOverCanvas>();
+		if (gameOverCanvas) {
+			gameOverCanvas->setActive(true);
+		}
+	}
 }
 
-bool GameManager::isGameOver() {
-	return this->gameOver;
+bool GameManager::getGameOver() {
+	return this->isGameOver;
 }

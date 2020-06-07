@@ -1,4 +1,6 @@
 #include "GameContext.h"
+#include "GameManager.h"
+#include "GameOverCanvas.h"
 
 #define BOARD_HEIGHT 900.0
 
@@ -23,12 +25,16 @@ GameContext::GameContext(const sf::RenderWindow & window) {
 	board = new Board(window, *boardView);
 	board->generateBoard(16, 30, 99);
 	entities.push_back(board);
+	entities.push_back(new GameManager());
 
-	gameManager = new GameManager();
-	entities.push_back(gameManager);
+	GameOverCanvas* gameOverCanvas = new GameOverCanvas(window);
+	gameOverCanvas->setActive(false);
+	entities.push_back(gameOverCanvas);
 
-	Board* boardEntity = findEntity<Board*>();
-	boardEntity->print();
+	Board* boardEntity = findEntity<Board>();
+	if (boardEntity) {
+		boardEntity->print();
+	}
 }
 
 GameContext::~GameContext() {
@@ -38,11 +44,7 @@ GameContext::~GameContext() {
 }
 
 void GameContext::handleEvents(const sf::RenderWindow & window, const sf::Event & evt) {
-	board->handleEvents(*this, window, evt);
-}
-
-void GameContext::draw(sf::RenderWindow & window) {
-	for (auto it = entities.begin(); it != entities.end(); it++) {
-		(*it)->draw(window);
+	if (board) {
+		board->handleEvents(*this, window, evt);
 	}
 }

@@ -9,16 +9,16 @@ public:
 	virtual ~BaseContext() = default;
 
 	virtual void handleEvents(const sf::RenderWindow& window, const sf::Event& evt) = 0;
-	virtual void draw(sf::RenderWindow& window) = 0;
+	virtual void draw(sf::RenderWindow& window);
 
 	template<class T>
-	T findEntity();
+	T* findEntity();
 };
 
 template<class T>
-T BaseContext::findEntity() {
+T* BaseContext::findEntity() {
 	for (auto iter = entities.begin(); iter != entities.end(); iter++) {
-		T castEntity = dynamic_cast<T>(*(iter));
+		T* castEntity = dynamic_cast<T*>(*(iter));
 		if (castEntity) {
 			return castEntity;
 		}

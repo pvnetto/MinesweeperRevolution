@@ -37,6 +37,9 @@
     <Filter Include="Header Files\Context">
       <UniqueIdentifier>{7773a1ff-3218-49e2-8c5d-14b0561015ac}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Canvas">
+      <UniqueIdentifier>{15df2c34-5cb7-4f26-8a3b-012a442c6f8d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp">
@@ -79,6 +82,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameContext.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseContext.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverCanvas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -130,6 +142,12 @@
     </ClInclude>
     <ClInclude Include="GameContext.h">
       <Filter>Header Files\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverCanvas.h">
+      <Filter>Header Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\Canvas</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

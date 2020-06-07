@@ -1,9 +1,10 @@
 #pragma once
 #include "Entity.h"
+#include "BaseContext.h"
 
 class GameManager : public Entity {
 private:
-	bool gameOver;
+	bool isGameOver = false;
 	float currentGameTime;
 
 public:
@@ -13,7 +14,7 @@ public:
 	virtual void draw(sf::RenderWindow& window) override { };
 
 	void startGame(int rowCount, int colCount, int numMines);
-	void endGame();
+	void endGame(BaseContext& ctx);
 
-	bool isGameOver();
+	bool getGameOver();
 };

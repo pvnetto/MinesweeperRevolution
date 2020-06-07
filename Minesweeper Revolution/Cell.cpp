@@ -70,13 +70,13 @@ void Cell::open(BaseContext & ctx) {
 	if (isMine) {
 		switchState(CellMineState::getInstance());
 
-		GameManager* gm = ctx.findEntity<GameManager*>();
-		gm->endGame();
+		GameManager* gm = ctx.findEntity<GameManager>();
+		gm->endGame(ctx);
 	}
 	else {
 		switchState(CellOpenState::getInstance());
 		if (adjacentMines == 0) {
-			Board* board = ctx.findEntity<Board*>();
+			Board* board = ctx.findEntity<Board>();
 			board->revealAdjacent(gridIndex, ctx);
 		}
 	}
