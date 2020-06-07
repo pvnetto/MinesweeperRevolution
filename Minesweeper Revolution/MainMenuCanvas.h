@@ -12,6 +12,7 @@ private:
 	Button* easyBtn;
 	Button* mediumBtn;
 	Button* hardBtn;
+	Button* quitBtn;
 
 	std::vector<InteractableEntity*> entities;
 public:

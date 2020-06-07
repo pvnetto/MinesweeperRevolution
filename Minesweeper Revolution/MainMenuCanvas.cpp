@@ -12,10 +12,12 @@ MainMenuCanvas::MainMenuCanvas(sf::RenderWindow & window) {
 	sf::Vector2f easyBtnPos = screenCenter + sf::Vector2f(0, 50.0f);
 	sf::Vector2f mediumBtnPos = screenCenter + sf::Vector2f(0, 150.0f);
 	sf::Vector2f hardBtnPos = screenCenter + sf::Vector2f(0, 250.0f);
+	sf::Vector2f quitBtnPos = screenCenter + sf::Vector2f(0, 350.0f);
 
 	easyBtn = new Button("Easy", easyBtnPos, btnSize, new Button::PlayAction<EasyGameContext>());
 	mediumBtn = new Button("Medium", mediumBtnPos, btnSize, new Button::PlayAction<MediumGameContext>());
 	hardBtn = new Button("Hard", hardBtnPos, btnSize, new Button::PlayAction<HardGameContext>());
+	quitBtn = new Button("Quit", quitBtnPos, btnSize, new Button::QuitAction(window));
 
 	sf::Vector2f gameOverTextPos = screenCenter - sf::Vector2f(0, 200.0f);
 	font.loadFromFile("OpenSans-Regular.ttf");
@@ -31,6 +33,7 @@ MainMenuCanvas::MainMenuCanvas(sf::RenderWindow & window) {
 	entities.push_back(easyBtn);
 	entities.push_back(mediumBtn);
 	entities.push_back(hardBtn);
+	entities.push_back(quitBtn);
 }
 
 MainMenuCanvas::~MainMenuCanvas() {
@@ -76,4 +79,5 @@ void MainMenuCanvas::draw(sf::RenderWindow & window) {
 	easyBtn->draw(window);
 	mediumBtn->draw(window);
 	hardBtn->draw(window);
+	quitBtn->draw(window);
 }
