@@ -6,6 +6,9 @@
 class Cell;
 class BaseContext;
 
+/// <summary>
+/// 
+/// </summary>
 class CellState {
 
 public:

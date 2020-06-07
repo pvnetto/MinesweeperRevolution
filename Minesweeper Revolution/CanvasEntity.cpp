@@ -19,7 +19,8 @@ void CanvasEntity::draw(sf::RenderWindow & window) {
 }
 
 void CanvasEntity::handleEvents(BaseContext & ctx, const sf::RenderWindow & window, const sf::Event & evt) {
-	if (active && inputEnabled) {
+	waitTick = std::max(waitTick - 1, 0);
+	if (active && inputEnabled && waitTick <= 0) {
 		sf::Vector2i mousePos = sf::Mouse::getPosition(window);
 		sf::Vector2f mousePosF = sf::Vector2f(mousePos.x, mousePos.y);
 		sf::Vector2f mousePosWorld = window.mapPixelToCoords(mousePos);
@@ -48,6 +49,7 @@ void CanvasEntity::handleEvents(BaseContext & ctx, const sf::RenderWindow & wind
 
 void CanvasEntity::toggleInput(bool val) {
 	inputEnabled = val;
+	waitTick = 3;
 }
 
 void CanvasEntity::deleteCanvas() {

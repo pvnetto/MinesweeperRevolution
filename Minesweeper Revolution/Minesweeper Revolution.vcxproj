@@ -171,22 +171,25 @@
     <ClInclude Include="Theme.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Cell_0.png" />
-    <Image Include="Cell_1.png" />
-    <Image Include="Cell_2.png" />
-    <Image Include="Cell_3.png" />
-    <Image Include="Cell_4.png" />
-    <Image Include="Cell_5.png" />
-    <Image Include="Cell_6.png" />
-    <Image Include="Cell_7.png" />
-    <Image Include="Cell_8.png" />
-    <Image Include="Cell_Mine.png" />
-    <Image Include="Cell_Mine_Red.png" />
-    <Image Include="Cell_Mine_X.png" />
-    <Image Include="Cell_Flagged.png" />
-    <Image Include="Cell_Idle.png" />
-    <Image Include="Cell_Unknown.png" />
-    <Image Include="Cell_Unknown_Open.png" />
+    <Image Include="Assets\Cell_0.png" />
+    <Image Include="Assets\Cell_1.png" />
+    <Image Include="Assets\Cell_2.png" />
+    <Image Include="Assets\Cell_3.png" />
+    <Image Include="Assets\Cell_4.png" />
+    <Image Include="Assets\Cell_5.png" />
+    <Image Include="Assets\Cell_6.png" />
+    <Image Include="Assets\Cell_7.png" />
+    <Image Include="Assets\Cell_8.png" />
+    <Image Include="Assets\Cell_Flagged.png" />
+    <Image Include="Assets\Cell_Idle.png" />
+    <Image Include="Assets\Cell_Mine.png" />
+    <Image Include="Assets\Cell_Mine_Red.png" />
+    <Image Include="Assets\Cell_Mine_X.png" />
+    <Image Include="Assets\Cell_Unknown.png" />
+    <Image Include="Assets\Cell_Unknown_Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\pixel.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

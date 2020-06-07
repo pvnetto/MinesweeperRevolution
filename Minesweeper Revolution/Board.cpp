@@ -46,6 +46,7 @@ void Board::start(BaseContext & ctx, int cellIdx) {
 
 		GameManager* gm = ctx.findEntity<GameManager>();
 		gm->resetCellCount(cellCount - mineCount);
+		gm->resetMineCount(ctx, mineCount);
 	}
 }
 
@@ -135,7 +136,7 @@ void Board::placeMine(int mineIdx) {
 
 	std::vector<int> adjacentCells = getAdjacentCells(mineIdx);
 	for (std::vector<int>::iterator it = adjacentCells.begin(); it != adjacentCells.end(); ++it) {
-		cells[*it]->incrementMines();
+		cells[*it]->incrementAdjacentMines();
 	}
 }
 

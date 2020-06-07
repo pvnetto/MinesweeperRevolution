@@ -6,6 +6,10 @@
 /// Base class for entities that draw other Entities and SFML/Drawable objects.
 /// </summary>
 class CanvasEntity : public Entity {
+private:
+	/// <summary> Prevents input from activating instantly when input is toggled </summary>
+	int waitTick = 0;
+
 protected:
 	bool inputEnabled = true;
 	sf::View* view = nullptr;

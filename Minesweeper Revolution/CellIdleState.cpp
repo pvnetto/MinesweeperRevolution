@@ -30,7 +30,7 @@ CellIdleState* CellIdleState::getInstance() {
 
 void CellIdleState::handleMessage(Cell& owner, Message msg, BaseContext & ctx) {
 	if (msg == Message::REVEAL) {
-		owner.handleReveal(ctx);
+		owner.handleRevealMessage(ctx);
 	}
 }
 
@@ -48,6 +48,7 @@ void CellIdleState::handleAction(Cell & owner, Action action, BaseContext& ctx) 
 			owner.open(ctx);
 			break;
 		case Action::ALT_CLICK:
+			owner.toggleFlagged(ctx, true);
 			owner.switchState(CellFlaggedState::getInstance());
 			break;
 		case Action::MOUSE_ENTER:

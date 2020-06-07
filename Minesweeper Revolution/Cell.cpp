@@ -3,9 +3,9 @@
 #include "CellMineState.h"
 #include "CellOpenState.h"
 
-#include "GameManager.h"
 #include "Board.h"
-#include "BaseContext.h"
+//#include "BaseContext.h"
+#include "GameManager.h"
 
 Cell::Cell() { }
 
@@ -87,7 +87,12 @@ void Cell::open(BaseContext & ctx) {
 	}
 }
 
-void Cell::handleReveal(BaseContext & ctx) {
+void Cell::toggleFlagged(BaseContext & ctx, bool flagged) {
+	GameManager* gm= ctx.findEntity<GameManager>();
+	gm->changeMineCount(ctx, flagged ? -1 : 1);
+}
+
+void Cell::handleRevealMessage(BaseContext & ctx) {
 	if (!isMine) {
 		open(ctx);
 	}
@@ -97,7 +102,7 @@ void Cell::setMine() {
 	isMine = true;
 }
 
-void Cell::incrementMines() {
+void Cell::incrementAdjacentMines() {
 	this->adjacentMines++;
 }
 

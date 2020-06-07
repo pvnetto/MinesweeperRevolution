@@ -30,15 +30,15 @@ CellFlaggedState* CellFlaggedState::getInstance() {
 
 void CellFlaggedState::handleMessage(Cell& owner, Message msg, BaseContext & ctx) {
 	if (msg == Message::REVEAL) {
-		owner.handleReveal(ctx);
+		owner.handleRevealMessage(ctx);
 	}
 }
 
-void CellFlaggedState::enter(Cell & owner) {
+void CellFlaggedState::enter(Cell& owner) {
 	owner.setTexture(flaggedTexture);
 }
 
-void CellFlaggedState::exit(Cell & owner) {
+void CellFlaggedState::exit(Cell& owner) {
 	owner.setColor(sf::Color::White);
 }
 
@@ -48,6 +48,7 @@ void CellFlaggedState::handleAction(Cell& owner, Action action, BaseContext& ctx
 			owner.open(ctx);
 			break;
 		case Action::ALT_CLICK:
+			owner.toggleFlagged(ctx, false);
 			owner.switchState(CellIdleState::getInstance());
 			break;
 		case Action::MOUSE_ENTER:

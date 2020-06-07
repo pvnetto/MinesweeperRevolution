@@ -1,6 +1,7 @@
 #include "GameManager.h"
 #include "GameOverCanvas.h"
 #include "Board.h"
+#include "PlayerCanvas.h"
 
 GameManager::GameManager() { }
 
@@ -16,6 +17,20 @@ void GameManager::decrementCellCount(BaseContext& ctx) {
 	if (remainingCells == 0) {
 		gameOver(ctx, true);
 	}
+}
+
+void GameManager::resetMineCount(BaseContext& ctx, int count) {
+	PlayerCanvas* playerCanvas = ctx.findEntity<PlayerCanvas>();
+	mineCount = count;
+
+	playerCanvas->updateMineCountText(mineCount);
+}
+
+void GameManager::changeMineCount(BaseContext & ctx, int diff) {
+	PlayerCanvas* playerCanvas = ctx.findEntity<PlayerCanvas>();
+	mineCount += diff;
+
+	playerCanvas->updateMineCountText(mineCount);
 }
 
 void GameManager::gameOver(BaseContext& ctx, bool victory) {

@@ -3,11 +3,12 @@
 #include "BaseContext.h"
 
 /// <summary>
-/// Entity reponsible for handling win and lose conditions.
+/// Entity that handles win/lose conditions and updates player canvas.
 /// </summary>
 class GameManager : public Entity {
 private:
 	int remainingCells;
+	int mineCount;
 	bool isGameOver = false;
 	float currentGameTime = 0.0;
 
@@ -19,6 +20,9 @@ public:
 
 	void resetCellCount(int count);
 	void decrementCellCount(BaseContext& ctx);
+
+	void resetMineCount(BaseContext& ctx, int count);
+	void changeMineCount(BaseContext& ctx, int diff);
 
 	void gameOver(BaseContext& ctx, bool victory);
 	void restart(BaseContext& ctx);
