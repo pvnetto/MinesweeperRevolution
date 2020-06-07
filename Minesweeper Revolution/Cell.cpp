@@ -68,19 +68,21 @@ void Cell::setGridIndex(int idx) {
 
 void Cell::open(BaseContext & ctx) {
 	Board* board = ctx.findEntity<Board>();
+	GameManager* gm = ctx.findEntity<GameManager>();
+
 	if (!board->hasStarted()) {
-		board->start(gridIndex);
+		board->start(ctx, gridIndex);
 	}
 	if (isMine) {
 		switchState(CellMineState::getInstance());
-
-		GameManager* gm = ctx.findEntity<GameManager>();
 		gm->gameOver(ctx);
 	}
 	else {
 		switchState(CellOpenState::getInstance());
+		gm->decrementCellCount(ctx);
+
 		if (adjacentMines == 0) {
-			board->revealAdjacent(gridIndex, ctx);
+			board->revealAdjacent(ctx, gridIndex);
 		}
 	}
 }

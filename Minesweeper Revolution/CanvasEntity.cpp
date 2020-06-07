@@ -49,3 +49,17 @@ void CanvasEntity::handleEvents(BaseContext & ctx, const sf::RenderWindow & wind
 void CanvasEntity::toggleInput(bool val) {
 	inputEnabled = val;
 }
+
+void CanvasEntity::deleteCanvas() {
+	if (view) {
+		delete view;
+	}
+
+	for (auto it = drawables.begin(); it != drawables.end(); it++) {
+		delete *it;
+	}
+
+	for (auto it = entities.begin(); it != entities.end(); it++) {
+		delete *it;
+	}
+}

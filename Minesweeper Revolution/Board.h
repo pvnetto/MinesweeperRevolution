@@ -30,8 +30,8 @@ public:
 	~Board();
 
 	void generateBoard(int rowCount, int colCount, int numMines);
-	void revealAdjacent(int idx, BaseContext& ctx);
-	void start(int cellIdx);
+	void revealAdjacent(BaseContext& ctx, int idx);
+	void start(BaseContext& ctx, int cellIdx);
 	void reset();
 
 	inline bool hasStarted() { return gameStarted; }

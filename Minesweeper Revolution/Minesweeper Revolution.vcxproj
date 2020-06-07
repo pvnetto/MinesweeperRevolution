@@ -166,6 +166,7 @@
     <ClInclude Include="MainMenuContext.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Message.h" />
+    <ClInclude Include="Theme.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="OpenSans-Regular.ttf" />

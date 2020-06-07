@@ -5,7 +5,7 @@ MainMenuCanvas::MainMenuCanvas(sf::RenderWindow & window) {
 	sf::RectangleShape* background = new sf::RectangleShape();
 	background->setSize(sf::Vector2f(window.getSize()));
 	background->setPosition(0.0f, 0.0f);
-	background->setFillColor(sf::Color(255, 0, 0, 120));
+	background->setFillColor(sf::Color(0, 0, 0, 120));
 
 	sf::Vector2f screenCenter = sf::Vector2f(window.getSize()) / 2.0f;
 
@@ -41,11 +41,5 @@ MainMenuCanvas::MainMenuCanvas(sf::RenderWindow & window) {
 }
 
 MainMenuCanvas::~MainMenuCanvas() {
-	for (auto it = drawables.begin(); it != drawables.end(); it++) {
-		delete *it;
-	}
-
-	for (auto it = entities.begin(); it != entities.end(); it++) {
-		delete *it;
-	}
+	deleteCanvas();
 }

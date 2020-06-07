@@ -6,6 +6,19 @@ GameManager::GameManager() { }
 
 GameManager::~GameManager() { }
 
+void GameManager::resetCellCount(int count) {
+	this->remainingCells = count;
+}
+
+void GameManager::decrementCellCount(BaseContext& ctx) {
+	this->remainingCells--;
+
+	std::cout << remainingCells << std::endl;
+	if (remainingCells == 0) {
+		gameOver(ctx);
+	}
+}
+
 void GameManager::gameOver(BaseContext& ctx) {
 	if (!isGameOver) {
 		isGameOver = true;

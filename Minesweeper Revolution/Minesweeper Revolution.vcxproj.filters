@@ -166,6 +166,9 @@
     <ClInclude Include="MainMenuCanvas.h">
       <Filter>Source\Canvas</Filter>
     </ClInclude>
+    <ClInclude Include="Theme.hpp">
+      <Filter>Source\Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="OpenSans-Regular.ttf">

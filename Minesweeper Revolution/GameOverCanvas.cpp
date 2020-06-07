@@ -33,7 +33,5 @@ GameOverCanvas::GameOverCanvas(sf::RenderWindow & window) {
 }
 
 GameOverCanvas::~GameOverCanvas() {
-	for (auto it = entities.begin(); it != entities.end(); it++) {
-		delete *it;
-	}
+	deleteCanvas();
 }

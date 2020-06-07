@@ -1,5 +1,6 @@
 #include "Board.h"
 #include "Math.h"
+#include "GameManager.h"
 #include <iostream>
 
 Board::Board(const sf::RenderWindow& window, sf::View& view) {
@@ -13,11 +14,7 @@ Board::Board(const sf::RenderWindow& window, sf::View& view) {
 }
 
 Board::~Board() {
-	for (int i = 0; i < cellCount; i++) {
-		delete cells[i];
-	}
-
-	delete view;
+	deleteCanvas();
 	delete[] cells;
 }
 
@@ -34,7 +31,7 @@ void Board::generateBoard(int rows, int cols, int numMines) {
 	}
 }
 
-void Board::revealAdjacent(int cellIdx, BaseContext& ctx) {
+void Board::revealAdjacent(BaseContext& ctx, int cellIdx) {
 	std::vector<int> adjacentCells = getAdjacentCells(cellIdx);
 
 	for (std::vector<int>::iterator it = adjacentCells.begin(); it != adjacentCells.end(); ++it) {
@@ -42,10 +39,13 @@ void Board::revealAdjacent(int cellIdx, BaseContext& ctx) {
 	}
 }
 
-void Board::start(int cellIdx) {
+void Board::start(BaseContext & ctx, int cellIdx) {
 	if (!gameStarted) {
 		gameStarted = true;
 		populateMines(cellIdx);
+
+		GameManager* gm = ctx.findEntity<GameManager>();
+		gm->resetCellCount(cellCount - mineCount);
 	}
 }
 
