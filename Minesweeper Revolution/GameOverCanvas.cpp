@@ -1,6 +1,6 @@
 #include "GameOverCanvas.h"
 
-GameOverCanvas::GameOverCanvas(const sf::RenderWindow & window) {
+GameOverCanvas::GameOverCanvas(sf::RenderWindow & window) {
 	background.setSize(sf::Vector2f(window.getSize()));
 	background.setPosition(0.0f, 0.0f);
 	background.setFillColor(sf::Color(0, 0, 0, 120));
@@ -12,7 +12,7 @@ GameOverCanvas::GameOverCanvas(const sf::RenderWindow & window) {
 	sf::Vector2f quitPos = screenCenter + sf::Vector2f(0, 150.0f);
 
 	restartBtn = new Button("Restart", restartPos, btnSize, new Button::RestartAction());
-	quitBtn = new Button("Quit", quitPos, btnSize, new Button::QuitAction());
+	quitBtn = new Button("Quit", quitPos, btnSize, new Button::QuitAction(window));
 
 	sf::Vector2f gameOverTextPos = screenCenter - sf::Vector2f(0, 200.0f);
 	font.loadFromFile("OpenSans-Regular.ttf");

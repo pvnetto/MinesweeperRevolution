@@ -25,9 +25,6 @@ void ContextManager::run() {
 			if (evt.type == sf::Event::Closed) {
 				window->close();
 			}
-			else if (evt.type == sf::Event::TextEntered) {
-				std::cout << (char)evt.text.unicode << std::endl;
-			}
 
 			currentContext->handleEvents(*window, evt);
 		}

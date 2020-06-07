@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -25,135 +17,145 @@
     <Filter Include="Assets\Fonts">
       <UniqueIdentifier>{e9347c94-9d97-4ae2-a105-a32fd00935e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Game">
+    <Filter Include="Source">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source\Game">
       <UniqueIdentifier>{27326eb8-2d5f-4ce4-859a-951985c97870}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Game\Cell">
+    <Filter Include="Source\Game\Cell">
       <UniqueIdentifier>{a2c727c6-ece9-4aa1-ace3-2c0e7ea1457f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Utils">
+    <Filter Include="Source\Utils">
       <UniqueIdentifier>{78699f04-13cc-4242-9402-e84d1a96984d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Context">
+    <Filter Include="Source\Context">
       <UniqueIdentifier>{7773a1ff-3218-49e2-8c5d-14b0561015ac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Canvas">
+    <Filter Include="Source\Canvas">
       <UniqueIdentifier>{15df2c34-5cb7-4f26-8a3b-012a442c6f8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game\Cell\States">
+      <UniqueIdentifier>{590c062d-c981-4a4b-99af-cfc5ab1a863f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Entities">
+      <UniqueIdentifier>{4f036043-2c67-4a6a-ac7a-1425d50e3784}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Animation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Snippets.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Cell.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Board.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CellState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CellIdleState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Math.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CellFlaggedState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CellMineState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CellOpenState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ContextManager.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BaseContext.cpp">
+      <Filter>Source\Context</Filter>
     </ClCompile>
     <ClCompile Include="GameContext.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseContext.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source\Context</Filter>
     </ClCompile>
     <ClCompile Include="GameOverCanvas.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source\Canvas</Filter>
     </ClCompile>
     <ClCompile Include="Button.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source\Canvas</Filter>
+    </ClCompile>
+    <ClCompile Include="Board.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Cell.cpp">
+      <Filter>Source\Game\Cell</Filter>
+    </ClCompile>
+    <ClCompile Include="CellFlaggedState.cpp">
+      <Filter>Source\Game\Cell\States</Filter>
+    </ClCompile>
+    <ClCompile Include="CellIdleState.cpp">
+      <Filter>Source\Game\Cell\States</Filter>
+    </ClCompile>
+    <ClCompile Include="CellMineState.cpp">
+      <Filter>Source\Game\Cell\States</Filter>
+    </ClCompile>
+    <ClCompile Include="CellOpenState.cpp">
+      <Filter>Source\Game\Cell\States</Filter>
+    </ClCompile>
+    <ClCompile Include="CellState.cpp">
+      <Filter>Source\Game\Cell</Filter>
+    </ClCompile>
+    <ClCompile Include="Snippets.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>Source\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="ContextManager.cpp">
+      <Filter>Source\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Source\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source</Filter>
     </ClInclude>
     <ClInclude Include="Board.h">
-      <Filter>Header Files\Game</Filter>
+      <Filter>Source\Game</Filter>
     </ClInclude>
     <ClInclude Include="Message.h">
-      <Filter>Header Files\Game</Filter>
+      <Filter>Source\Game</Filter>
     </ClInclude>
     <ClInclude Include="Action.h">
-      <Filter>Header Files\Game</Filter>
+      <Filter>Source\Game</Filter>
     </ClInclude>
     <ClInclude Include="GameManager.h">
-      <Filter>Header Files\Game</Filter>
+      <Filter>Source\Game</Filter>
     </ClInclude>
     <ClInclude Include="Cell.h">
-      <Filter>Header Files\Game\Cell</Filter>
-    </ClInclude>
-    <ClInclude Include="CellIdleState.h">
-      <Filter>Header Files\Game\Cell</Filter>
+      <Filter>Source\Game\Cell</Filter>
     </ClInclude>
     <ClInclude Include="CellState.h">
-      <Filter>Header Files\Game\Cell</Filter>
+      <Filter>Source\Game\Cell</Filter>
     </ClInclude>
     <ClInclude Include="Math.h">
-      <Filter>Header Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="CellMineState.h">
-      <Filter>Header Files\Game\Cell</Filter>
-    </ClInclude>
-    <ClInclude Include="CellFlaggedState.h">
-      <Filter>Header Files\Game\Cell</Filter>
-    </ClInclude>
-    <ClInclude Include="CellOpenState.h">
-      <Filter>Header Files\Game\Cell</Filter>
+      <Filter>Source\Utils</Filter>
     </ClInclude>
     <ClInclude Include="ContextManager.h">
-      <Filter>Header Files\Context</Filter>
+      <Filter>Source\Context</Filter>
     </ClInclude>
     <ClInclude Include="BaseContext.h">
-      <Filter>Header Files\Context</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Header Files\Context</Filter>
+      <Filter>Source\Context</Filter>
     </ClInclude>
     <ClInclude Include="GameContext.h">
-      <Filter>Header Files\Context</Filter>
+      <Filter>Source\Context</Filter>
     </ClInclude>
     <ClInclude Include="GameOverCanvas.h">
-      <Filter>Header Files\Canvas</Filter>
+      <Filter>Source\Canvas</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
-      <Filter>Header Files\Canvas</Filter>
+      <Filter>Source\Canvas</Filter>
     </ClInclude>
-    <ClInclude Include="InteractableEntity.h">
-      <Filter>Header Files\Context</Filter>
+    <ClInclude Include="CellFlaggedState.h">
+      <Filter>Source\Game\Cell\States</Filter>
+    </ClInclude>
+    <ClInclude Include="CellIdleState.h">
+      <Filter>Source\Game\Cell\States</Filter>
+    </ClInclude>
+    <ClInclude Include="CellMineState.h">
+      <Filter>Source\Game\Cell\States</Filter>
+    </ClInclude>
+    <ClInclude Include="CellOpenState.h">
+      <Filter>Source\Game\Cell\States</Filter>
     </ClInclude>
     <ClInclude Include="CanvasEntity.h">
-      <Filter>Header Files\Context</Filter>
+      <Filter>Source\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Source\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractableEntity.h">
+      <Filter>Source\Entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,7 @@
 
 #define BOARD_HEIGHT 900.0
 
-GameContext::GameContext(const sf::RenderWindow & window) {
+GameContext::GameContext(sf::RenderWindow & window) {
 	float windowWidth = float(window.getSize().x);
 	float windowHeight = float(window.getSize().y);
 
@@ -48,7 +48,7 @@ void GameContext::handleEvents(const sf::RenderWindow & window, const sf::Event 
 	if (board) {
 		board->handleEvents(*this, window, evt);
 	}
-	if (gameOverCanvas && gameOverCanvas->isActive()) {
+	if (gameOverCanvas) {
 		gameOverCanvas->handleEvents(*this, window, evt);
 	}
 }

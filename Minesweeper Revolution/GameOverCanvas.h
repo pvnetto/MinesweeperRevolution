@@ -14,7 +14,7 @@ private:
 
 	std::vector<InteractableEntity*> entities;
 public:
-	GameOverCanvas(const sf::RenderWindow & window);
+	GameOverCanvas(sf::RenderWindow & window);
 	~GameOverCanvas();
 
 	virtual void handleEvents(BaseContext& ctx, const sf::RenderWindow& window, const sf::Event& evt) override;

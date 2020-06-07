@@ -18,9 +18,15 @@ public:
 	};
 
 	class QuitAction : public ButtonAction {
+	private:
+		sf::Window* window = nullptr;
 	public:
+		QuitAction(sf::Window& window) {
+			this->window = &window;
+		}
+
 		virtual void action(BaseContext&ctx) override {
-			printf("quitting....");
+			window->close();
 		}
 	};
 
