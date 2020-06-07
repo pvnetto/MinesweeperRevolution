@@ -1,13 +1,11 @@
 #include "GameContext.h"
 #include "GameManager.h"
 #include "GameOverCanvas.h"
-#include "ContextManager.h"
-
-#include "MainMenuContext.h"
 
 #define BOARD_HEIGHT 900.0
 
-GameContext::GameContext(ContextManager& ctxManager, sf::RenderWindow & window) : BaseContext(ctxManager) {
+GameContext::GameContext(ContextManager& ctxManager, sf::RenderWindow & window, int rows, int cols, int mines)
+	: BaseContext(ctxManager) {
 	float windowWidth = float(window.getSize().x);
 	float windowHeight = float(window.getSize().y);
 
@@ -26,7 +24,7 @@ GameContext::GameContext(ContextManager& ctxManager, sf::RenderWindow & window) 
 	uiView.setViewport(sf::FloatRect(0, 0, 1, UI_HEIGHT_RATIO));
 
 	board = new Board(window, *boardView);
-	board->generateBoard(16, 30, 99);
+	board->generateBoard(rows, cols, mines);
 	entities.push_back(board);
 	entities.push_back(new GameManager());
 
@@ -45,17 +43,16 @@ GameContext::~GameContext() {
 	for (auto it = entities.begin(); it != entities.end(); it++) {
 		delete *(it);
 	}
+
+	board = nullptr;
+	gameOverCanvas = nullptr;
 }
 
-void GameContext::handleEvents(const sf::RenderWindow & window, const sf::Event & evt) {
+void GameContext::handleEvents(const sf::RenderWindow & window, const sf::Event & evt) {	
 	if (board) {
 		board->handleEvents(*this, window, evt);
 	}
 	if (gameOverCanvas) {
 		gameOverCanvas->handleEvents(*this, window, evt);
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-		getContextManager()->switchContext<MainMenuContext>();
 	}
 }

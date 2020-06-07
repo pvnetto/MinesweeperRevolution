@@ -9,20 +9,35 @@ void ContextManager::run() {
 	sf::Clock clock;
 
 	while (window->isOpen()) {
-		float deltaTime = clock.restart().asSeconds();
-	
-		sf::Event evt;
-		while (window->pollEvent(evt)) {
-			if (evt.type == sf::Event::Closed) {
-				window->close();
+		if (currentContext) {
+			float deltaTime = clock.restart().asSeconds();
+
+			sf::Event evt;
+			while (window->pollEvent(evt)) {
+				if (evt.type == sf::Event::Closed) {
+					window->close();
+				}
+
+				currentContext->handleEvents(*window, evt);
 			}
 
-			currentContext->handleEvents(*window, evt);
+			// Clears screen buffer
+			window->clear(sf::Color(10, 30, 90));
+			currentContext->draw(*window);
+			window->display();
 		}
 
-		// Clears screen buffer
-		window->clear(sf::Color(10, 30, 90));
-		currentContext->draw(*window);
-		window->display();
+		handleContextSwitch();
+	}
+}
+
+void ContextManager::handleContextSwitch() {
+	if (nextContext != currentContext) {
+		if (this->currentContext) {
+			delete currentContext;
+			currentContext = nullptr;
+		}
+
+		this->currentContext = nextContext;
 	}
 }

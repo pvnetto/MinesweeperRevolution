@@ -6,9 +6,6 @@ GameManager::GameManager() { }
 
 GameManager::~GameManager() { }
 
-void GameManager::start(int rowCount, int colCount, int numMines) {
-}
-
 void GameManager::gameOver(BaseContext& ctx) {
 	if (!isGameOver) {
 		isGameOver = true;

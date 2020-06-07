@@ -8,5 +8,5 @@ public:
 	virtual void draw(sf::RenderWindow& window) = 0;
 
 	inline bool isActive() { return active; }
-	inline void setActive(bool val) { active = val; }
+	void setActive(bool val);
 };

@@ -2,6 +2,9 @@
 #include "InteractableEntity.h"
 #include "GameManager.h"
 
+#include "ContextManager.h"
+//#include "GameContext.h"
+
 class Button : public InteractableEntity {
 public:
 	class ButtonAction {
@@ -27,6 +30,14 @@ public:
 
 		virtual void action(BaseContext&ctx) override {
 			window->close();
+		}
+	};
+
+	template <class T>
+	class PlayAction : public ButtonAction {
+	public:
+		virtual void action(BaseContext&ctx) override {
+			ctx.getContextManager()->switchContext<T>();
 		}
 	};
 

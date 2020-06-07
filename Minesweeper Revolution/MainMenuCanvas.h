@@ -2,18 +2,21 @@
 #include "CanvasEntity.h"
 #include "Button.h"
 
-class GameOverCanvas : public CanvasEntity {
+class BaseContext;
+
+class MainMenuCanvas : public CanvasEntity {
 private:
 	sf::RectangleShape background;
 	sf::Font font;
-	sf::Text gameOverText;
-	Button* restartBtn;
-	Button* quitBtn;
+	sf::Text gameTitleText;
+	Button* easyBtn;
+	Button* mediumBtn;
+	Button* hardBtn;
 
 	std::vector<InteractableEntity*> entities;
 public:
-	GameOverCanvas(sf::RenderWindow & window);
-	~GameOverCanvas();
+	MainMenuCanvas(sf::RenderWindow & window);
+	~MainMenuCanvas();
 
 	virtual void handleEvents(BaseContext& ctx, const sf::RenderWindow& window, const sf::Event& evt) override;
 	virtual void draw(sf::RenderWindow& window) override;

@@ -98,6 +98,15 @@
     <ClCompile Include="MainMenuContext.cpp">
       <Filter>Source\Context</Filter>
     </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuCanvas.cpp">
+      <Filter>Source\Canvas</Filter>
+    </ClCompile>
+    <ClCompile Include="CanvasEntity.cpp">
+      <Filter>Source\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -162,6 +171,9 @@
     </ClInclude>
     <ClInclude Include="MainMenuContext.h">
       <Filter>Source\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuCanvas.h">
+      <Filter>Source\Canvas</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

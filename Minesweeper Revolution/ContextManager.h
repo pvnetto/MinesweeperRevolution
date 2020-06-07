@@ -1,11 +1,11 @@
 #pragma once
-
 #include "BaseContext.h"
 #include <type_traits>
 
 class ContextManager {
 private:
 	BaseContext* currentContext = nullptr;
+	BaseContext* nextContext = nullptr;
 	sf::RenderWindow* window;
 
 public:
@@ -21,6 +21,11 @@ public:
 	/// </summary>
 	template<class T>
 	void switchContext();
+
+	/// <summary>
+	/// Changes context only after the current context finishes processing its draw and event calls
+	/// </summary>
+	void handleContextSwitch();
 };
 
 template<class T>
@@ -29,11 +34,5 @@ inline void ContextManager::switchContext() {
 	static_assert(std::is_base_of<BaseContext, T>::value, "T must inherit from BaseContext.");
 
 	T* newContext = new T(*this, *window);
-
-	if (this->currentContext) {
-		delete currentContext;
-		currentContext = nullptr;
-	}
-
-	this->currentContext = newContext;
+	nextContext = newContext;
 }

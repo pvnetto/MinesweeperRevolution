@@ -25,8 +25,8 @@ int main() {
 	//uiView.setViewport(sf::FloatRect(0, 0, 1, UI_HEIGHT_RATIO));
 
 	/*	Difficulties
-		9 x 9		-	40
-		16 x 16		-	10
+		9 x 9		-	10
+		16 x 16		-	40
 		30 x 16		-	99
 	*/
 
