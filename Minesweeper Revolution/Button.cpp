@@ -2,7 +2,7 @@
 
 Button::Button() { }
 
-Button::Button(std::string text, sf::Vector2f pos, sf::Vector2f size) {
+Button::Button(std::string text, sf::Vector2f pos, sf::Vector2f size, ButtonAction* clickAction) {
 	btnShape.setSize(size);
 	btnShape.setPosition(pos);
 	btnShape.setOrigin(size / 2.0f);
@@ -21,6 +21,12 @@ Button::Button(std::string text, sf::Vector2f pos, sf::Vector2f size) {
 	btnText.setFillColor(sf::Color::White);
 	btnText.setStyle(sf::Text::Bold);
 	btnText.setPosition(pos);
+
+	this->clickAction = clickAction;
+}
+
+Button::~Button() {
+	delete clickAction;
 }
 
 void Button::draw(sf::RenderWindow & window) {
@@ -33,4 +39,20 @@ void Button::draw(sf::RenderWindow & window) {
 	window.draw(btnBorder);
 	window.draw(btnShape);
 	window.draw(btnText);
+}
+
+sf::Shape * Button::getShape() {
+	return &btnShape;
+}
+
+void Button::handleAction(Action action, BaseContext & ctx) {
+	switch (action) {
+		case Action::LEFT_CLICK:
+			if (this->clickAction) {
+				this->clickAction->action(ctx);
+			}
+			break;
+		case Action::MOUSE_ENTER:
+			break;
+	}
 }

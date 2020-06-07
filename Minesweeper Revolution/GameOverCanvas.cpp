@@ -10,8 +10,9 @@ GameOverCanvas::GameOverCanvas(const sf::RenderWindow & window) {
 	sf::Vector2f btnSize(300.0f, 80.0f);
 	sf::Vector2f restartPos = screenCenter + sf::Vector2f(0, 50.0f);
 	sf::Vector2f quitPos = screenCenter + sf::Vector2f(0, 150.0f);
-	restartBtn = Button("Restart", restartPos, btnSize);
-	quitBtn = Button("Quit", quitPos, btnSize);
+
+	restartBtn = new Button("Restart", restartPos, btnSize, new Button::RestartAction());
+	quitBtn = new Button("Quit", quitPos, btnSize, new Button::QuitAction());
 
 	sf::Vector2f gameOverTextPos = screenCenter - sf::Vector2f(0, 200.0f);
 	font.loadFromFile("OpenSans-Regular.ttf");
@@ -23,6 +24,43 @@ GameOverCanvas::GameOverCanvas(const sf::RenderWindow & window) {
 	gameOverText.setFillColor(sf::Color::White);
 	gameOverText.setStyle(sf::Text::Bold);
 	gameOverText.setPosition(gameOverTextPos);
+
+	entities.push_back(restartBtn);
+	entities.push_back(quitBtn);
+}
+
+GameOverCanvas::~GameOverCanvas() {
+	for (auto it = entities.begin(); it != entities.end(); it++) {
+		delete *it;
+	}
+}
+
+
+
+void GameOverCanvas::handleEvents(BaseContext& ctx, const sf::RenderWindow& window, const sf::Event& evt) {
+	sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+	sf::Vector2f mousePosF = sf::Vector2f(mousePos.x, mousePos.y);
+	sf::Vector2f mousePosWorld = window.mapPixelToCoords(mousePos);
+
+	for (auto it = entities.begin(); it != entities.end(); it++) {
+		auto entity = *it;
+		if (entity->getShape()->getGlobalBounds().contains(mousePosWorld)) {
+			if (evt.type == sf::Event::MouseButtonReleased) {
+				if (evt.mouseButton.button == sf::Mouse::Left) {
+					entity->handleAction(Action::LEFT_CLICK, ctx);
+				}
+				else if (evt.mouseButton.button == sf::Mouse::Right) {
+					entity->handleAction(Action::ALT_CLICK, ctx);
+				}
+			}
+			else {
+				entity->handleAction(Action::MOUSE_ENTER, ctx);
+			}
+		}
+		else {
+			entity->handleAction(Action::MOUSE_LEAVE, ctx);
+		}
+	}
 }
 
 void GameOverCanvas::draw(sf::RenderWindow & window) {
@@ -30,6 +68,6 @@ void GameOverCanvas::draw(sf::RenderWindow & window) {
 	window.draw(background);
 	window.draw(gameOverText);
 
-	restartBtn.draw(window);
-	quitBtn.draw(window);
+	restartBtn->draw(window);
+	quitBtn->draw(window);
 }

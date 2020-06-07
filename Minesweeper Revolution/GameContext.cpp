@@ -27,7 +27,7 @@ GameContext::GameContext(const sf::RenderWindow & window) {
 	entities.push_back(board);
 	entities.push_back(new GameManager());
 
-	GameOverCanvas* gameOverCanvas = new GameOverCanvas(window);
+	gameOverCanvas = new GameOverCanvas(window);
 	gameOverCanvas->setActive(false);
 	entities.push_back(gameOverCanvas);
 
@@ -46,5 +46,8 @@ GameContext::~GameContext() {
 void GameContext::handleEvents(const sf::RenderWindow & window, const sf::Event & evt) {
 	if (board) {
 		board->handleEvents(*this, window, evt);
+	}
+	if (gameOverCanvas && gameOverCanvas->isActive()) {
+		gameOverCanvas->handleEvents(*this, window, evt);
 	}
 }

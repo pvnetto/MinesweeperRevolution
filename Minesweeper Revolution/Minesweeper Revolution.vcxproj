@@ -154,6 +154,7 @@
     <ClInclude Include="CellOpenState.h" />
     <ClInclude Include="CellState.h" />
     <ClInclude Include="ContextManager.h" />
+    <ClInclude Include="InteractableEntity.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GameContext.h" />
     <ClInclude Include="GameManager.h" />

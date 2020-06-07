@@ -149,6 +149,9 @@
     <ClInclude Include="Button.h">
       <Filter>Header Files\Canvas</Filter>
     </ClInclude>
+    <ClInclude Include="InteractableEntity.h">
+      <Filter>Header Files\Context</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="OpenSans-Regular.ttf">
