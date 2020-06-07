@@ -38,7 +38,7 @@ sf::Shape* Cell::getShape() {
 	return &shape;
 }
 
-void Cell::handleMessage(Message msg, BaseContext & ctx) {
+void Cell::handleMessage(CellState::Message msg, BaseContext & ctx) {
 	currentState->handleMessage(*this, msg, ctx);
 }
 

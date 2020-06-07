@@ -1,6 +1,9 @@
 #pragma once
 #include "CellState.h"
 
+/// <summary>
+/// State for flagged cells.
+/// </summary>
 class CellFlaggedState : public CellState {
 public:
 	static CellFlaggedState* getInstance();

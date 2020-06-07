@@ -1,6 +1,9 @@
 #pragma once
 #include "CellState.h"
 
+/// <summary>
+/// State for open cells that are not mines.
+/// </summary>
 class CellOpenState : public CellState {
 public:
 	static CellOpenState* getInstance();

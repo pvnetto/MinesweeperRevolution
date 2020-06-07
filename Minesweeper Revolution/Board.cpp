@@ -18,7 +18,7 @@ Board::~Board() {
 	delete[] cells;
 }
 
-void Board::generateBoard(int rows, int cols, int numMines) {
+void Board::generateGrid(int rows, int cols, int numMines) {
 	this->mineCount = numMines;
 	instantiateBoard(rows, cols);
 
@@ -35,11 +35,11 @@ void Board::revealAdjacent(BaseContext& ctx, int cellIdx) {
 	std::vector<int> adjacentCells = getAdjacentCells(cellIdx);
 
 	for (std::vector<int>::iterator it = adjacentCells.begin(); it != adjacentCells.end(); ++it) {
-		cells[*it]->handleMessage(Message::REVEAL, ctx);
+		cells[*it]->handleMessage(CellState::Message::REVEAL, ctx);
 	}
 }
 
-void Board::start(BaseContext & ctx, int cellIdx) {
+void Board::startGame(BaseContext & ctx, int cellIdx) {
 	if (!gameStarted) {
 		gameStarted = true;
 		populateMines(cellIdx);
@@ -50,7 +50,7 @@ void Board::start(BaseContext & ctx, int cellIdx) {
 	}
 }
 
-void Board::reset() {
+void Board::resetGrid() {
 	inputEnabled = true;
 	gameStarted = false;
 	for (int i = 0; i < cellCount; i++) {

@@ -4,6 +4,9 @@
 
 class BaseContext;
 
+/// <summary>
+/// CanvasEntity that handles all main menu HUD initialization, drawing and events.
+/// </summary>
 class MainMenuCanvas : public CanvasEntity {
 private:
 	sf::Font font;

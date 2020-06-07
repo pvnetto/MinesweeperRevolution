@@ -106,9 +106,6 @@
     <ClInclude Include="Board.h">
       <Filter>Source\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Message.h">
-      <Filter>Source\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Action.h">
       <Filter>Source\Game</Filter>
     </ClInclude>

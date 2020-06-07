@@ -69,11 +69,14 @@ public:
 	int getAdjacentMinesCount();
 
 	/* Delegates for CellState methods */
-	void handleMessage(Message msg, BaseContext & ctx);
+	void handleMessage(CellState::Message msg, BaseContext & ctx);
 	void switchState(CellState* newState);
 	void handleAction(Action action, BaseContext & ctx);
 	void setTexture(sf::Texture* newTexture);
 
+	/// <summary>
+	/// Helper method to print the board.
+	/// </summary>
 	inline char toChar() {
 		return isMine ? '*' : adjacentMines + '0';
 	}

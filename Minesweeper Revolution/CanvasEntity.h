@@ -3,7 +3,8 @@
 #include "InteractableEntity.h"
 
 /// <summary>
-/// Base class for entities that draw other Entities and SFML/Drawable objects.
+/// Base class for entities that draw other Entities and SFML/Drawable objects. Child classes
+/// are expected to initialize all objects they're going to handle and add them to their respective list.
 /// </summary>
 class CanvasEntity : public Entity {
 private:
@@ -32,5 +33,8 @@ public:
 	/// </summary>
 	void deleteCanvas();
 
+	/// <summary>
+	/// Enables/disables input handling.
+	/// </summary>
 	void toggleInput(bool val);
 };

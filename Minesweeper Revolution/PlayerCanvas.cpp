@@ -17,15 +17,15 @@ PlayerCanvas::PlayerCanvas(sf::RenderWindow & window, sf::View & view) {
 	// Initializes remaining mine text
 	sf::Vector2f minesTextPos = viewCenter - sf::Vector2f(200.0f, 0);
 	font.loadFromFile("Assets/pixel.ttf");
-	minesText = new sf::Text("-", font, 32);
-	minesText->setOrigin(
-		minesText->getLocalBounds().left + minesText->getLocalBounds().width / 2.0f,
-		minesText->getLocalBounds().top + minesText->getLocalBounds().height / 2.0f
+	mineCountText = new sf::Text("-", font, 32);
+	mineCountText->setOrigin(
+		mineCountText->getLocalBounds().left + mineCountText->getLocalBounds().width / 2.0f,
+		mineCountText->getLocalBounds().top + mineCountText->getLocalBounds().height / 2.0f
 	);
-	minesText->setFillColor(sf::Color::White);
-	minesText->setStyle(sf::Text::Bold);
-	minesText->setPosition(minesTextPos);
-	drawables.push_back(minesText);
+	mineCountText->setFillColor(sf::Color::White);
+	mineCountText->setStyle(sf::Text::Bold);
+	mineCountText->setPosition(minesTextPos);
+	drawables.push_back(mineCountText);
 
 	// Initializes remaining mine icon
 	sf::Vector2f iconPos = minesTextPos - sf::Vector2f(60.0f, 0.0f);
@@ -41,11 +41,11 @@ PlayerCanvas::PlayerCanvas(sf::RenderWindow & window, sf::View & view) {
 
 PlayerCanvas::~PlayerCanvas() {
 	deleteCanvas();
-	minesText = nullptr;
+	mineCountText = nullptr;
 }
 
 void PlayerCanvas::updateMineCountText(int count) {
-	if (minesText) {
-		minesText->setString(std::to_string(count));
+	if (mineCountText) {
+		mineCountText->setString(std::to_string(count));
 	}
 }

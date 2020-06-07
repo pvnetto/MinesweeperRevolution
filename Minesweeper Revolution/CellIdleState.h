@@ -1,6 +1,9 @@
 #pragma once
 #include "CellState.h"
 
+/// <summary>
+/// State for closed cells.
+/// </summary>
 class CellIdleState : public CellState {
 public:
 	static CellIdleState* getInstance();

@@ -1,6 +1,9 @@
 #pragma once
 #include "CellState.h"
 
+/// <summary>
+/// State for open cells that are mines.
+/// </summary>
 class CellMineState : public CellState {
 public:
 	static CellMineState* getInstance();

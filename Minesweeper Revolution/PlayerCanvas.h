@@ -6,7 +6,7 @@
 /// </summary>
 class PlayerCanvas : public CanvasEntity {
 private:
-	sf::Text* minesText = nullptr;
+	sf::Text* mineCountText = nullptr;
 	sf::Font font;
 
 public:

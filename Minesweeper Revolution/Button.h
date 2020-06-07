@@ -1,17 +1,28 @@
 #pragma once
 #include "InteractableEntity.h"
 #include "GameManager.h"
-
 #include "ContextManager.h"
-//#include "GameContext.h"
 
+/// <summary>
+/// InteractableEntity for a simple UI Button, with background, text and border.
+/// </summary>
 class Button : public InteractableEntity {
 public:
+
+	/// <summary>
+	/// Helper class for button click actions
+	/// </summary>
 	class ButtonAction {
 	public:
+		/// <summary>
+		/// Implements action logic. Called when the button is clicked.
+		/// </summary>
 		virtual void action(BaseContext & ctx) = 0;
 	};
 
+	/// <summary>
+	/// Restarts the current game.
+	/// <summary>
 	class RestartAction : public ButtonAction {
 	public:
 		virtual void action(BaseContext&ctx) override {
@@ -20,6 +31,9 @@ public:
 		}
 	};
 
+	/// <summary>
+	/// Quits the game.
+	/// <summary>
 	class QuitAction : public ButtonAction {
 	private:
 		sf::Window* window = nullptr;
@@ -33,8 +47,11 @@ public:
 		}
 	};
 
+	/// <summary>
+	/// Switches the current Context.
+	/// <summary>
 	template <class T>
-	class PlayAction : public ButtonAction {
+	class ContextAction : public ButtonAction {
 	public:
 		virtual void action(BaseContext&ctx) override {
 			ctx.getContextManager()->switchContext<T>();

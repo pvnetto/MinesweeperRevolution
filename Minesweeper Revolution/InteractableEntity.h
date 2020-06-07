@@ -4,6 +4,9 @@
 
 class BaseContext;
 
+/// <summary>
+/// Abstract Class for Entities that are drawn and receive inputs.
+/// </summary>
 class InteractableEntity : public Entity {
 public:
 	virtual sf::Shape* getShape() = 0;
