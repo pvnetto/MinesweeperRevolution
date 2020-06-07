@@ -18,6 +18,8 @@ protected:
 	std::vector<sf::Drawable*> drawables;
 
 public:
+	virtual ~CanvasEntity() { deleteCanvas(); };
+
 	/// <summary>
 	/// Delegates draw for Entities and Drawables
 	/// </summary>

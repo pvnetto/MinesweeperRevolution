@@ -13,6 +13,6 @@ private:
 
 public:
 	MainMenuCanvas(sf::RenderWindow & window);
-	~MainMenuCanvas();
+	virtual ~MainMenuCanvas();
 
 };

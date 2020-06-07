@@ -12,6 +12,7 @@ protected:
 	bool active = true;
 
 public:
+	virtual ~Entity() { }
 	/// <summary>
 	/// Entities should use window to draw themselves.
 	/// </summary>

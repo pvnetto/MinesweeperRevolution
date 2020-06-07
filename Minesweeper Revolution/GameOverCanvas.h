@@ -12,7 +12,7 @@ private:
 
 public:
 	GameOverCanvas(sf::RenderWindow & window);
-	~GameOverCanvas();
+	virtual ~GameOverCanvas();
 
 	void switchTitle(bool victory);
 };

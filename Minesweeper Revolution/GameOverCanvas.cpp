@@ -30,7 +30,6 @@ GameOverCanvas::GameOverCanvas(sf::RenderWindow & window) {
 }
 
 GameOverCanvas::~GameOverCanvas() {
-	deleteCanvas();
 	gameOverText = nullptr;
 }
 

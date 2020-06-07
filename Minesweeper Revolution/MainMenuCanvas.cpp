@@ -40,6 +40,4 @@ MainMenuCanvas::MainMenuCanvas(sf::RenderWindow & window) {
 	drawables.push_back(gameTitleText);
 }
 
-MainMenuCanvas::~MainMenuCanvas() {
-	deleteCanvas();
-}
+MainMenuCanvas::~MainMenuCanvas() {  }

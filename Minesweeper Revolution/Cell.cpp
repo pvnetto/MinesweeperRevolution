@@ -71,7 +71,7 @@ void Cell::open(BaseContext & ctx) {
 	GameManager* gm = ctx.findEntity<GameManager>();
 
 	if (!board->hasStarted()) {
-		board->start(ctx, gridIndex);
+		board->startGame(ctx, gridIndex);
 	}
 	if (isMine) {
 		switchState(CellMineState::getInstance());

@@ -20,7 +20,7 @@ GameContext::GameContext(ContextManager& ctxManager, sf::RenderWindow & window, 
 	boardView->setViewport(sf::FloatRect(0, BOARD_OFFSET_TOP, 1, BOARD_HEIGHT_RATIO));
 
 	board = new Board(window, *boardView);
-	board->generateBoard(rows, cols, mines);
+	board->generateGrid(rows, cols, mines);
 	entities.push_back(board);
 
 	sf::FloatRect uiRect(0, 0, windowWidth, UI_HEIGHT);

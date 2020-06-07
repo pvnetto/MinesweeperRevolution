@@ -52,7 +52,7 @@ void GameManager::restart(BaseContext & ctx) {
 	currentGameTime = 0.0;
 
 	Board* board = ctx.findEntity<Board>();
-	board->reset();
+	board->resetGrid();
 
 	GameOverCanvas* gameOverCanvas = ctx.findEntity<GameOverCanvas>();
 	gameOverCanvas->setActive(false);

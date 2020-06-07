@@ -40,7 +40,6 @@ PlayerCanvas::PlayerCanvas(sf::RenderWindow & window, sf::View & view) {
 }
 
 PlayerCanvas::~PlayerCanvas() {
-	deleteCanvas();
 	mineCountText = nullptr;
 }
 

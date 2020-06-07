@@ -11,7 +11,7 @@ private:
 
 public:
 	PlayerCanvas(sf::RenderWindow& window, sf::View& view);
-	~PlayerCanvas();
+	virtual ~PlayerCanvas();
 
 	void updateMineCountText(int count);
 };
