@@ -2,7 +2,7 @@
 #include "SFML/Graphics.hpp"
 
 class Entity {
-private:
+protected:
 	bool active = true;
 public:
 	virtual void draw(sf::RenderWindow& window) = 0;

@@ -14,9 +14,11 @@ void GameManager::gameOver(BaseContext& ctx) {
 		isGameOver = true;
 
 		GameOverCanvas* gameOverCanvas = ctx.findEntity<GameOverCanvas>();
-		if (gameOverCanvas) {
-			gameOverCanvas->setActive(true);
-		}
+		gameOverCanvas->setActive(true);
+		gameOverCanvas->toggleInput(true);
+
+		Board* board = ctx.findEntity<Board>();
+		board->toggleInput(false);
 	}
 }
 
@@ -29,8 +31,5 @@ void GameManager::restart(BaseContext & ctx) {
 
 	GameOverCanvas* gameOverCanvas = ctx.findEntity<GameOverCanvas>();
 	gameOverCanvas->setActive(false);
-}
-
-bool GameManager::getGameOver() {
-	return this->isGameOver;
+	gameOverCanvas->toggleInput(false);
 }

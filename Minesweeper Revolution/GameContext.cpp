@@ -29,6 +29,7 @@ GameContext::GameContext(const sf::RenderWindow & window) {
 
 	gameOverCanvas = new GameOverCanvas(window);
 	gameOverCanvas->setActive(false);
+	gameOverCanvas->toggleInput(false);
 	entities.push_back(gameOverCanvas);
 
 	Board* boardEntity = findEntity<Board>();

@@ -7,6 +7,6 @@ namespace msrevo {
 			return (1 - t)*a + t * b;
 		}
 
-		std::vector<int> sampleFromRange(int n, int count);
+		std::vector<int> sampleFromRange(int n, int count, int excluded);
 	}
 }

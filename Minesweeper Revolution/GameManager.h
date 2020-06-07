@@ -16,6 +16,4 @@ public:
 	void start(int rowCount, int colCount, int numMines);
 	void gameOver(BaseContext& ctx);
 	void restart(BaseContext& ctx);
-
-	bool getGameOver();
 };

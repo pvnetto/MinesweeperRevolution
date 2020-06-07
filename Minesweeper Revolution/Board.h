@@ -8,7 +8,9 @@ class BaseContext;
 
 class Board : public CanvasEntity {
 private:
+	// Board State
 	Cell** cells;
+	bool gameStarted = false;
 
 	// Board Dimensions
 	int rows, cols, mineCount;
@@ -61,6 +63,6 @@ private:
 	}
 
 	// Board Methods
-	void populateMines(int numMines);
+	void populateMines(int cellIdx);
 	void placeMine(int mineIdx);
 };

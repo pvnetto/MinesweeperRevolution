@@ -99,7 +99,6 @@ void Cell::incrementMines() {
 void Cell::reset() {
 	this->isMine = false;
 	this->adjacentMines = 0;
-	this->gridIndex = -1;
 	this->switchState(CellIdleState::getInstance());
 }
 

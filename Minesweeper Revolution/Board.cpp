@@ -13,7 +13,6 @@ Board::Board(const sf::RenderWindow& window, sf::View& view) {
 }
 
 Board::~Board() {
-	// TODO: This should be in pooling destructor, instead of board
 	for (int i = 0; i < cellCount; i++) {
 		delete cells[i];
 	}
@@ -39,6 +38,11 @@ void Board::handleEvents(BaseContext& ctx, const sf::RenderWindow& window, const
 			if (cells[i]->getShape().getGlobalBounds().contains(mousePosWorld)) {
 				if (evt.type == sf::Event::MouseButtonReleased) {
 					if (evt.mouseButton.button == sf::Mouse::Left) {
+						if (!gameStarted) {
+							gameStarted = true;
+							populateMines(i);
+						}
+
 						cells[i]->handleAction(Action::LEFT_CLICK, ctx);
 					}
 					else if (evt.mouseButton.button == sf::Mouse::Right) {
@@ -57,6 +61,7 @@ void Board::handleEvents(BaseContext& ctx, const sf::RenderWindow& window, const
 }
 
 void Board::generateBoard(int rows, int cols, int numMines) {
+	this->mineCount = numMines;
 	instantiateBoard(rows, cols);
 
 	// Row -> Height -> Y
@@ -66,8 +71,6 @@ void Board::generateBoard(int rows, int cols, int numMines) {
 			instantiateCell(col, row);
 		}
 	}
-
-	populateMines(numMines);
 }
 
 void Board::revealAdjacent(int cellIdx, BaseContext& ctx) {
@@ -79,6 +82,8 @@ void Board::revealAdjacent(int cellIdx, BaseContext& ctx) {
 }
 
 void Board::reset() {
+	inputEnabled = true;
+	gameStarted = false;
 	for (int i = 0; i < cellCount; i++) {
 		cells[i]->reset();
 	}
@@ -149,9 +154,8 @@ int Board::getCellCount() {
 	return cellCount;
 }
 
-void Board::populateMines(int numMines) {
-	std::vector<int> mineIndices = msrevo::Math::sampleFromRange(this->cellCount, numMines);
-	std::cout << mineIndices.size() << std::endl;
+void Board::populateMines(int cellIdx) {
+	std::vector<int> mineIndices = msrevo::Math::sampleFromRange(this->cellCount, this->mineCount, cellIdx);
 	for (std::vector<int>::iterator it = mineIndices.begin(); it != mineIndices.end(); ++it) {
 		placeMine(*it);
 	}

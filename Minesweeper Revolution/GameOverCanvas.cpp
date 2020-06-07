@@ -36,9 +36,8 @@ GameOverCanvas::~GameOverCanvas() {
 }
 
 
-
 void GameOverCanvas::handleEvents(BaseContext& ctx, const sf::RenderWindow& window, const sf::Event& evt) {
-	if (inputEnabled) {
+	if (active && inputEnabled) {
 		sf::Vector2i mousePos = sf::Mouse::getPosition(window);
 		sf::Vector2f mousePosF = sf::Vector2f(mousePos.x, mousePos.y);
 		sf::Vector2f mousePosWorld = window.mapPixelToCoords(mousePos);
