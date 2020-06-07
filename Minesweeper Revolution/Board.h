@@ -4,6 +4,8 @@
 #include "SFML/Graphics.hpp"
 #include <iostream>
 
+class BaseContext;
+
 class Board : public Entity {
 private:
 	// TODO: Refactor to grid template class
@@ -28,10 +30,10 @@ public:
 	~Board();
 
 	void draw(sf::RenderWindow& window);
-	void handleEvents(const sf::RenderWindow& window, const sf::Event& evt);
+	void handleEvents(BaseContext& ctx, const sf::RenderWindow& window, const sf::Event& evt);
 
 	void generateBoard(int rowCount, int colCount, int numMines);
-	void revealAdjacent(int idx);
+	void revealAdjacent(int idx, BaseContext& ctx);
 	//void clearBoard();
 	//void resetBoard();
 

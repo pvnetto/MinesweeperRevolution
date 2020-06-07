@@ -33,4 +33,4 @@ void CellMineState::enter(Cell & owner) {
 
 void CellMineState::exit(Cell & owner) {}
 
-void CellMineState::handleAction(Cell & owner, Action action, Board& board) { }
+void CellMineState::handleAction(Cell & owner, Action action, BaseContext& ctx) { }

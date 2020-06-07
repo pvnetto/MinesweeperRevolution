@@ -10,7 +10,7 @@ public:
 	GameManager();
 	~GameManager();
 
-	virtual void draw(sf::RenderWindow& window) override {};
+	virtual void draw(sf::RenderWindow& window) override { };
 
 	void startGame(int rowCount, int colCount, int numMines);
 	void endGame();

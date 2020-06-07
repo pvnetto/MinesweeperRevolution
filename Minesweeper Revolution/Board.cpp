@@ -29,7 +29,7 @@ void Board::draw(sf::RenderWindow& window) {
 	}
 }
 
-void Board::handleEvents(const sf::RenderWindow& window, const sf::Event& evt) {
+void Board::handleEvents(BaseContext& ctx, const sf::RenderWindow& window, const sf::Event& evt) {
 	sf::Vector2i mousePos = sf::Mouse::getPosition(window);
 	sf::Vector2f mousePosF = sf::Vector2f(mousePos.x, mousePos.y);
 	sf::Vector2f mousePosWorld = window.mapPixelToCoords(mousePos);
@@ -38,18 +38,18 @@ void Board::handleEvents(const sf::RenderWindow& window, const sf::Event& evt) {
 		if (cells[i]->getShape().getGlobalBounds().contains(mousePosWorld)) {
 			if (evt.type == sf::Event::MouseButtonReleased) {
 				if (evt.mouseButton.button == sf::Mouse::Left) {
-					cells[i]->handleAction(Action::LEFT_CLICK, *this);
+					cells[i]->handleAction(Action::LEFT_CLICK, ctx);
 				}
 				else if (evt.mouseButton.button == sf::Mouse::Right) {
-					cells[i]->handleAction(Action::ALT_CLICK, *this);
+					cells[i]->handleAction(Action::ALT_CLICK, ctx);
 				}
 			}
 			else {
-				cells[i]->handleAction(Action::MOUSE_ENTER, *this);
+				cells[i]->handleAction(Action::MOUSE_ENTER, ctx);
 			}
 		}
 		else {
-			cells[i]->handleAction(Action::MOUSE_LEAVE, *this);
+			cells[i]->handleAction(Action::MOUSE_LEAVE, ctx);
 		}
 	}
 }
@@ -68,11 +68,11 @@ void Board::generateBoard(int rows, int cols, int numMines) {
 	populateMines(numMines);
 }
 
-void Board::revealAdjacent(int cellIdx) {
+void Board::revealAdjacent(int cellIdx, BaseContext& ctx) {
 	std::vector<int> adjacentCells = getAdjacentCells(cellIdx);
 
 	for (std::vector<int>::iterator it = adjacentCells.begin(); it != adjacentCells.end(); ++it) {
-		cells[*it]->handleMessage(Message::REVEAL, *this);
+		cells[*it]->handleMessage(Message::REVEAL, ctx);
 	}
 }
 

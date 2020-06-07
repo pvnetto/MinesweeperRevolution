@@ -20,33 +20,29 @@ GameContext::GameContext(const sf::RenderWindow & window) {
 	sf::View uiView(uiRect);
 	uiView.setViewport(sf::FloatRect(0, 0, 1, UI_HEIGHT_RATIO));
 
-	gameManager = new GameManager();
 	board = new Board(window, *boardView);
 	board->generateBoard(16, 30, 99);
-	//board->print();
-
-	entities.push_back(gameManager);
 	entities.push_back(board);
 
-	//findEntity<Board*>();
+	gameManager = new GameManager();
+	entities.push_back(gameManager);
+
 	Board* boardEntity = findEntity<Board*>();
-	if (boardEntity) {
-		std::cout << "Found board entity!" << std::endl;
-	}
-	else {
-		std::cout << "Board entity not found :(" << std::endl;
-	}
+	boardEntity->print();
 }
 
 GameContext::~GameContext() {
-	delete gameManager;
-	delete board;
+	for (auto it = entities.begin(); it != entities.end(); it++) {
+		delete *(it);
+	}
 }
 
 void GameContext::handleEvents(const sf::RenderWindow & window, const sf::Event & evt) {
-	board->handleEvents(window, evt);
+	board->handleEvents(*this, window, evt);
 }
 
 void GameContext::draw(sf::RenderWindow & window) {
-	board->draw(window);
+	for (auto it = entities.begin(); it != entities.end(); it++) {
+		(*it)->draw(window);
+	}
 }

@@ -10,7 +10,7 @@ public:
 
 public:
 	GameContext(const sf::RenderWindow& window);
-	~GameContext();
+	virtual ~GameContext();
 
 	virtual void handleEvents(const sf::RenderWindow& window, const sf::Event& evt) override;
 	virtual void draw(sf::RenderWindow& window) override;

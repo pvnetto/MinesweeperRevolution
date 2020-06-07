@@ -7,7 +7,7 @@ public:
 
 	virtual void enter(Cell& owner) override;
 	virtual void exit(Cell& owner) override;
-	virtual void handleAction(Cell& owner, Action action, Board& board) override;
+	virtual void handleAction(Cell& owner, Action action, BaseContext& ctx) override;
 
 private:
 	static CellMineState* instance;

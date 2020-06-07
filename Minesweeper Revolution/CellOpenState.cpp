@@ -37,4 +37,4 @@ void CellOpenState::enter(Cell & owner) {
 
 void CellOpenState::exit(Cell & owner) {}
 
-void CellOpenState::handleAction(Cell & owner, Action action, Board& board) {}
+void CellOpenState::handleAction(Cell & owner, Action action, BaseContext& ctx) {}

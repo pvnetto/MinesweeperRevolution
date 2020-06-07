@@ -28,9 +28,9 @@ CellIdleState* CellIdleState::getInstance() {
 	return instance;
 }
 
-void CellIdleState::handleMessage(Cell& owner, Message msg, Board& board) {
+void CellIdleState::handleMessage(Cell& owner, Message msg, BaseContext & ctx) {
 	if (msg == Message::REVEAL) {
-		owner.handleReveal(board);
+		owner.handleReveal(ctx);
 	}
 }
 
@@ -42,10 +42,10 @@ void CellIdleState::exit(Cell & owner) {
 	owner.setColor(sf::Color::White);
 }
 
-void CellIdleState::handleAction(Cell & owner, Action action, Board& board) {
+void CellIdleState::handleAction(Cell & owner, Action action, BaseContext& ctx) {
 	switch (action) {
 		case Action::LEFT_CLICK:
-			owner.open(board);
+			owner.open(ctx);
 			break;
 		case Action::ALT_CLICK:
 			owner.switchState(CellFlaggedState::getInstance());

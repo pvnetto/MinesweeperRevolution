@@ -3,6 +3,8 @@
 #include "SFML/Graphics.hpp"
 #include <iostream>
 
+class BaseContext;
+
 class Cell {
 public:
 	bool isMine;
@@ -28,17 +30,17 @@ public:
 
 	void setGridIndex(int idx);
 
-	void open(Board& board);
-	void handleReveal(Board& board);
+	void open(BaseContext & ctx);
+	void handleReveal(BaseContext & ctx);
 	void setMine();
 	void incrementMines();
 	void reset();
 
 	int getAdjacentMinesCount();
 
-	void handleMessage(Message msg, Board& board);
+	void handleMessage(Message msg, BaseContext & ctx);
 	void switchState(CellState* newState);
-	void handleAction(Action action, Board& board);
+	void handleAction(Action action, BaseContext & ctx);
 	void setTexture(sf::Texture* newTexture);
 
 	inline char toChar() {

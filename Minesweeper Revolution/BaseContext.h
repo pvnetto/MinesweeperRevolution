@@ -6,6 +6,8 @@ protected:
 	std::vector<Entity*> entities;
 
 public:
+	virtual ~BaseContext() = default;
+
 	virtual void handleEvents(const sf::RenderWindow& window, const sf::Event& evt) = 0;
 	virtual void draw(sf::RenderWindow& window) = 0;
 

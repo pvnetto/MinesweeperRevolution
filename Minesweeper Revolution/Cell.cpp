@@ -3,7 +3,9 @@
 #include "CellMineState.h"
 #include "CellOpenState.h"
 
+#include "GameManager.h"
 #include "Board.h"
+#include "BaseContext.h"
 
 Cell::Cell() { }
 
@@ -36,8 +38,8 @@ const sf::RectangleShape & Cell::getShape() {
 	return this->shape;
 }
 
-void Cell::handleMessage(Message msg, Board & board) {
-	currentState->handleMessage(*this, msg, board);
+void Cell::handleMessage(Message msg, BaseContext & ctx) {
+	currentState->handleMessage(*this, msg, ctx);
 }
 
 void Cell::switchState(CellState* newState) {
@@ -48,8 +50,8 @@ void Cell::switchState(CellState* newState) {
 	this->currentState->enter(*this);
 }
 
-void Cell::handleAction(Action action, Board& board) {
-	this->currentState->handleAction(*this, action, board);
+void Cell::handleAction(Action action, BaseContext & ctx) {
+	this->currentState->handleAction(*this, action, ctx);
 }
 
 void Cell::setTexture(sf::Texture* newTexture) {
@@ -64,21 +66,25 @@ void Cell::setGridIndex(int idx) {
 	this->gridIndex = idx;
 }
 
-void Cell::open(Board& board) {
+void Cell::open(BaseContext & ctx) {
 	if (isMine) {
 		switchState(CellMineState::getInstance());
+
+		GameManager* gm = ctx.findEntity<GameManager*>();
+		gm->endGame();
 	}
 	else {
 		switchState(CellOpenState::getInstance());
 		if (adjacentMines == 0) {
-			board.revealAdjacent(gridIndex);
+			Board* board = ctx.findEntity<Board*>();
+			board->revealAdjacent(gridIndex, ctx);
 		}
 	}
 }
 
-void Cell::handleReveal(Board& board) {
+void Cell::handleReveal(BaseContext & ctx) {
 	if (!isMine) {
-		open(board);
+		open(ctx);
 	}
 }
 

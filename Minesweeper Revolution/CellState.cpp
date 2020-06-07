@@ -1,3 +1,3 @@
 #include "CellState.h"
 
-void CellState::handleMessage(Cell& owner, Message msg, Board& board) { }
+void CellState::handleMessage(Cell& owner, Message msg, BaseContext & ctx) { }
