@@ -13,22 +13,5 @@ int main() {
 	ContextManager ctxManager(window);
 	ctxManager.switchContext<MainMenuContext>();
 	ctxManager.run();
-
-
-	// Views
-	//sf::FloatRect boardRect(0, UI_HEIGHT, WINDOW_WIDTH, BOARD_HEIGHT);
-	//sf::View boardView(boardRect);
-	//boardView.setViewport(sf::FloatRect(0, BOARD_OFFSET_TOP, 1, BOARD_HEIGHT_RATIO));
-
-	//sf::FloatRect uiRect(0, 0, WINDOW_WIDTH, UI_HEIGHT);
-	//sf::View uiView(uiRect);
-	//uiView.setViewport(sf::FloatRect(0, 0, 1, UI_HEIGHT_RATIO));
-
-	/*	Difficulties
-		9 x 9		-	10
-		16 x 16		-	40
-		30 x 16		-	99
-	*/
-
 	return 0;
 }

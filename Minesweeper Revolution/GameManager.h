@@ -2,6 +2,9 @@
 #include "Entity.h"
 #include "BaseContext.h"
 
+/// <summary>
+/// Entity reponsible for handling win and lose conditions.
+/// </summary>
 class GameManager : public Entity {
 private:
 	int remainingCells;
@@ -17,6 +20,6 @@ public:
 	void resetCellCount(int count);
 	void decrementCellCount(BaseContext& ctx);
 
-	void gameOver(BaseContext& ctx);
+	void gameOver(BaseContext& ctx, bool victory);
 	void restart(BaseContext& ctx);
 };

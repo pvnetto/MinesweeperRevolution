@@ -2,11 +2,13 @@
 #include "BaseContext.h"
 #include "Board.h"
 #include "GameOverCanvas.h"
+#include "PlayerCanvas.h"
 
 class GameContext : public BaseContext {
 protected:
 	Board* board = nullptr;
 	GameOverCanvas* gameOverCanvas = nullptr;
+	PlayerCanvas* playerCanvas = nullptr;
 
 public:
 	GameContext(ContextManager& ctxManager, sf::RenderWindow & window, int rows, int cols, int mines);

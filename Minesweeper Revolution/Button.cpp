@@ -26,6 +26,9 @@ Button::Button(std::string text, sf::Vector2f pos, sf::Vector2f size, ButtonActi
 }
 
 Button::~Button() {
+	if (btnTexture) {
+		delete btnTexture;
+	}
 	delete clickAction;
 }
 
@@ -54,5 +57,17 @@ void Button::handleAction(Action action, BaseContext & ctx) {
 			break;
 		case Action::MOUSE_ENTER:
 			break;
+	}
+}
+
+void Button::setFillColor(sf::Color newColor) {
+	btnShape.setFillColor(newColor);
+}
+
+void Button::setTexture(std::string texturePath) {
+	btnTexture = new sf::Texture();
+
+	if (btnTexture->loadFromFile(texturePath)) {
+		btnShape.setTexture(btnTexture);
 	}
 }

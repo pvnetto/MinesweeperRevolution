@@ -47,6 +47,7 @@ public:
 	sf::RectangleShape btnBorder;
 	sf::Text btnText;
 
+	sf::Texture* btnTexture = nullptr;
 	ButtonAction* clickAction = nullptr;
 public:
 	Button();
@@ -56,4 +57,7 @@ public:
 	virtual void draw(sf::RenderWindow & window) override;
 	virtual sf::Shape* getShape() override;
 	virtual void handleAction(Action action, BaseContext & ctx) override;
+
+	void setFillColor(sf::Color newColor);
+	void setTexture(std::string path);
 };

@@ -21,9 +21,6 @@
     <Filter Include="Source\Context">
       <UniqueIdentifier>{7773a1ff-3218-49e2-8c5d-14b0561015ac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Canvas">
-      <UniqueIdentifier>{15df2c34-5cb7-4f26-8a3b-012a442c6f8d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\Game\Cell\States">
       <UniqueIdentifier>{590c062d-c981-4a4b-99af-cfc5ab1a863f}</UniqueIdentifier>
     </Filter>
@@ -42,6 +39,9 @@
     <Filter Include="Resource Files\Assets\Fonts">
       <UniqueIdentifier>{e9347c94-9d97-4ae2-a105-a32fd00935e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\UI">
+      <UniqueIdentifier>{15df2c34-5cb7-4f26-8a3b-012a442c6f8d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseContext.cpp">
@@ -51,10 +51,7 @@
       <Filter>Source\Context</Filter>
     </ClCompile>
     <ClCompile Include="GameOverCanvas.cpp">
-      <Filter>Source\Canvas</Filter>
-    </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Source\Canvas</Filter>
+      <Filter>Source\UI</Filter>
     </ClCompile>
     <ClCompile Include="Board.cpp">
       <Filter>Source\Game</Filter>
@@ -96,10 +93,16 @@
       <Filter>Source\Entities</Filter>
     </ClCompile>
     <ClCompile Include="MainMenuCanvas.cpp">
-      <Filter>Source\Canvas</Filter>
+      <Filter>Source\UI</Filter>
     </ClCompile>
     <ClCompile Include="CanvasEntity.cpp">
       <Filter>Source\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCanvas.cpp">
+      <Filter>Source\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,10 +137,7 @@
       <Filter>Source\Context</Filter>
     </ClInclude>
     <ClInclude Include="GameOverCanvas.h">
-      <Filter>Source\Canvas</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>Source\Canvas</Filter>
+      <Filter>Source\UI</Filter>
     </ClInclude>
     <ClInclude Include="CellFlaggedState.h">
       <Filter>Source\Game\Cell\States</Filter>
@@ -164,10 +164,16 @@
       <Filter>Source\Context</Filter>
     </ClInclude>
     <ClInclude Include="MainMenuCanvas.h">
-      <Filter>Source\Canvas</Filter>
+      <Filter>Source\UI</Filter>
     </ClInclude>
     <ClInclude Include="Theme.hpp">
       <Filter>Source\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Source\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCanvas.h">
+      <Filter>Source\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

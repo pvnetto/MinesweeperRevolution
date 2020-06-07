@@ -143,6 +143,7 @@
     <ClCompile Include="MainMenuCanvas.cpp" />
     <ClCompile Include="MainMenuContext.cpp" />
     <ClCompile Include="Math.cpp" />
+    <ClCompile Include="PlayerCanvas.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
@@ -166,6 +167,7 @@
     <ClInclude Include="MainMenuContext.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Message.h" />
+    <ClInclude Include="PlayerCanvas.h" />
     <ClInclude Include="Theme.hpp" />
   </ItemGroup>
   <ItemGroup>

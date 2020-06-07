@@ -22,7 +22,7 @@ void ContextManager::run() {
 			}
 
 			// Clears screen buffer
-			window->clear(sf::Color(10, 30, 90));
+			window->clear(sf::Color(10, 10, 40));
 			currentContext->draw(*window);
 			window->display();
 		}

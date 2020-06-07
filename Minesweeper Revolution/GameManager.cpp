@@ -11,21 +11,21 @@ void GameManager::resetCellCount(int count) {
 }
 
 void GameManager::decrementCellCount(BaseContext& ctx) {
-	this->remainingCells--;
+	remainingCells--;
 
-	std::cout << remainingCells << std::endl;
 	if (remainingCells == 0) {
-		gameOver(ctx);
+		gameOver(ctx, true);
 	}
 }
 
-void GameManager::gameOver(BaseContext& ctx) {
+void GameManager::gameOver(BaseContext& ctx, bool victory) {
 	if (!isGameOver) {
 		isGameOver = true;
 
 		GameOverCanvas* gameOverCanvas = ctx.findEntity<GameOverCanvas>();
 		gameOverCanvas->setActive(true);
 		gameOverCanvas->toggleInput(true);
+		gameOverCanvas->switchTitle(victory);
 
 		Board* board = ctx.findEntity<Board>();
 		board->toggleInput(false);

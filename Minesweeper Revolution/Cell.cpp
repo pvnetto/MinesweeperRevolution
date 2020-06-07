@@ -75,7 +75,7 @@ void Cell::open(BaseContext & ctx) {
 	}
 	if (isMine) {
 		switchState(CellMineState::getInstance());
-		gm->gameOver(ctx);
+		gm->gameOver(ctx, false);
 	}
 	else {
 		switchState(CellOpenState::getInstance());

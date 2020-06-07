@@ -16,11 +16,8 @@ GameOverCanvas::GameOverCanvas(sf::RenderWindow & window) {
 
 	sf::Vector2f gameOverTextPos = screenCenter - sf::Vector2f(0, 200.0f);
 	font.loadFromFile("OpenSans-Regular.ttf");
-	sf::Text* gameOverText = new sf::Text("Game Over", font, 64);
-	gameOverText->setOrigin(
-		gameOverText->getLocalBounds().left + gameOverText->getLocalBounds().width / 2.0f,
-		gameOverText->getLocalBounds().top + gameOverText->getLocalBounds().height / 2.0f
-	);
+	
+	gameOverText = new sf::Text("Game Over", font, 64);
 	gameOverText->setFillColor(sf::Color::White);
 	gameOverText->setStyle(sf::Text::Bold);
 	gameOverText->setPosition(gameOverTextPos);
@@ -34,4 +31,18 @@ GameOverCanvas::GameOverCanvas(sf::RenderWindow & window) {
 
 GameOverCanvas::~GameOverCanvas() {
 	deleteCanvas();
+}
+
+void GameOverCanvas::switchTitle(bool victory) {
+	if (victory) {
+		gameOverText->setString("Victory!");
+	}
+	else {
+		gameOverText->setString("Game Over");
+	}
+
+	gameOverText->setOrigin(
+		gameOverText->getLocalBounds().left + gameOverText->getLocalBounds().width / 2.0f,
+		gameOverText->getLocalBounds().top + gameOverText->getLocalBounds().height / 2.0f
+	);
 }
