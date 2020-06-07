@@ -17,7 +17,6 @@ private:
 	int cellCount;
 
 	// View Dimensions
-	sf::View* view;
 	const float verticalOffset = 50.0f;		// TODO: Move this to view building, so the view considers the vertical offset
 	float boardYStart, boardYEnd;
 	float boardMaxWidth;
@@ -30,12 +29,12 @@ public:
 	Board(const sf::RenderWindow& window, sf::View& view);
 	~Board();
 
-	void draw(sf::RenderWindow& window);
-	virtual void handleEvents(BaseContext& ctx, const sf::RenderWindow& window, const sf::Event& evt) override;
-
 	void generateBoard(int rowCount, int colCount, int numMines);
 	void revealAdjacent(int idx, BaseContext& ctx);
+	void start(int cellIdx);
 	void reset();
+
+	inline bool hasStarted() { return gameStarted; }
 
 	int getCellCount();
 

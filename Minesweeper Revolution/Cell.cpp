@@ -34,8 +34,8 @@ void Cell::setColor(sf::Color color) {
 	this->shape.setFillColor(color);
 }
 
-const sf::RectangleShape & Cell::getShape() {
-	return this->shape;
+sf::Shape* Cell::getShape() {
+	return &shape;
 }
 
 void Cell::handleMessage(Message msg, BaseContext & ctx) {
@@ -58,8 +58,8 @@ void Cell::setTexture(sf::Texture* newTexture) {
 	shape.setTexture(newTexture);
 }
 
-const sf::Shape & Cell::draw() {
-	return this->shape;
+void Cell::draw(sf::RenderWindow& window) {
+	window.draw(shape);
 }
 
 void Cell::setGridIndex(int idx) {
@@ -67,6 +67,10 @@ void Cell::setGridIndex(int idx) {
 }
 
 void Cell::open(BaseContext & ctx) {
+	Board* board = ctx.findEntity<Board>();
+	if (!board->hasStarted()) {
+		board->start(gridIndex);
+	}
 	if (isMine) {
 		switchState(CellMineState::getInstance());
 
@@ -76,7 +80,6 @@ void Cell::open(BaseContext & ctx) {
 	else {
 		switchState(CellOpenState::getInstance());
 		if (adjacentMines == 0) {
-			Board* board = ctx.findEntity<Board>();
 			board->revealAdjacent(gridIndex, ctx);
 		}
 	}

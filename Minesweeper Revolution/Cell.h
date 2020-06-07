@@ -1,11 +1,12 @@
 #pragma once
+#include "InteractableEntity.h"
 #include "CellState.h"
 #include "SFML/Graphics.hpp"
 #include <iostream>
 
 class BaseContext;
 
-class Cell {
+class Cell : public InteractableEntity {
 public:
 	bool isMine;
 	int gridIndex;
@@ -25,8 +26,8 @@ public:
 	void setPosition(sf::Vector2f newPos);
 	void setSize(sf::Vector2f newSize);
 	void setColor(sf::Color color);
-	const sf::RectangleShape& getShape();
-	const sf::Shape& draw();
+	sf::Shape* getShape();
+	virtual void draw(sf::RenderWindow& window) override;
 
 	void setGridIndex(int idx);
 

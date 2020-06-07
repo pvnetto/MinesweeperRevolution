@@ -21,45 +21,6 @@ Board::~Board() {
 	delete[] cells;
 }
 
-void Board::draw(sf::RenderWindow& window) {
-	window.setView(*view);
-	for (int i = 0; i < cellCount; i++) {
-		window.draw(cells[i]->draw());
-	}
-}
-
-void Board::handleEvents(BaseContext& ctx, const sf::RenderWindow& window, const sf::Event& evt) {
-	if (inputEnabled) {
-		sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-		sf::Vector2f mousePosF = sf::Vector2f(mousePos.x, mousePos.y);
-		sf::Vector2f mousePosWorld = window.mapPixelToCoords(mousePos);
-
-		for (int i = 0; i < cellCount; i++) {
-			if (cells[i]->getShape().getGlobalBounds().contains(mousePosWorld)) {
-				if (evt.type == sf::Event::MouseButtonReleased) {
-					if (evt.mouseButton.button == sf::Mouse::Left) {
-						if (!gameStarted) {
-							gameStarted = true;
-							populateMines(i);
-						}
-
-						cells[i]->handleAction(Action::LEFT_CLICK, ctx);
-					}
-					else if (evt.mouseButton.button == sf::Mouse::Right) {
-						cells[i]->handleAction(Action::ALT_CLICK, ctx);
-					}
-				}
-				else {
-					cells[i]->handleAction(Action::MOUSE_ENTER, ctx);
-				}
-			}
-			else {
-				cells[i]->handleAction(Action::MOUSE_LEAVE, ctx);
-			}
-		}
-	}
-}
-
 void Board::generateBoard(int rows, int cols, int numMines) {
 	this->mineCount = numMines;
 	instantiateBoard(rows, cols);
@@ -78,6 +39,13 @@ void Board::revealAdjacent(int cellIdx, BaseContext& ctx) {
 
 	for (std::vector<int>::iterator it = adjacentCells.begin(); it != adjacentCells.end(); ++it) {
 		cells[*it]->handleMessage(Message::REVEAL, ctx);
+	}
+}
+
+void Board::start(int cellIdx) {
+	if (!gameStarted) {
+		gameStarted = true;
+		populateMines(cellIdx);
 	}
 }
 
@@ -124,6 +92,7 @@ void Board::instantiateCell(const int & col, const int & row) {
 	int cellIdx = getCellIndex(row, col);
 	cells[cellIdx] = new Cell(pos, cellSize);
 	cells[cellIdx]->setGridIndex(cellIdx);
+	entities.push_back(cells[cellIdx]);
 }
 
 bool Board::isGridPositionValid(const int &row, const int &col) {

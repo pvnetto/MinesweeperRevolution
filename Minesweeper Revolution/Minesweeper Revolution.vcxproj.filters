@@ -5,18 +5,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Assets">
-      <UniqueIdentifier>{1537fa2f-2772-4c89-850b-9b26e1454fdc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\Textures">
-      <UniqueIdentifier>{35ad3488-d0f1-4a1a-92de-d24b4625c6d6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\Audio">
-      <UniqueIdentifier>{115468cb-a612-4656-bd55-bf5b678c0cd7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\Fonts">
-      <UniqueIdentifier>{e9347c94-9d97-4ae2-a105-a32fd00935e9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
@@ -41,6 +29,18 @@
     </Filter>
     <Filter Include="Source\Entities">
       <UniqueIdentifier>{4f036043-2c67-4a6a-ac7a-1425d50e3784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Assets">
+      <UniqueIdentifier>{1537fa2f-2772-4c89-850b-9b26e1454fdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Assets\Textures">
+      <UniqueIdentifier>{35ad3488-d0f1-4a1a-92de-d24b4625c6d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Assets\Audio">
+      <UniqueIdentifier>{115468cb-a612-4656-bd55-bf5b678c0cd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Assets\Fonts">
+      <UniqueIdentifier>{e9347c94-9d97-4ae2-a105-a32fd00935e9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -169,57 +169,57 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="OpenSans-Regular.ttf">
-      <Filter>Assets\Fonts</Filter>
+      <Filter>Resource Files\Assets\Fonts</Filter>
     </Font>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Cell_0.png">
-      <Filter>Assets\Textures</Filter>
+      <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
     <Image Include="Cell_1.png">
-      <Filter>Assets\Textures</Filter>
+      <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
     <Image Include="Cell_2.png">
-      <Filter>Assets\Textures</Filter>
+      <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
     <Image Include="Cell_3.png">
-      <Filter>Assets\Textures</Filter>
+      <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
     <Image Include="Cell_4.png">
-      <Filter>Assets\Textures</Filter>
+      <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
     <Image Include="Cell_5.png">
-      <Filter>Assets\Textures</Filter>
+      <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
     <Image Include="Cell_6.png">
-      <Filter>Assets\Textures</Filter>
+      <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
     <Image Include="Cell_7.png">
-      <Filter>Assets\Textures</Filter>
+      <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
     <Image Include="Cell_8.png">
-      <Filter>Assets\Textures</Filter>
+      <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
     <Image Include="Cell_Flagged.png">
-      <Filter>Assets\Textures</Filter>
+      <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
     <Image Include="Cell_Idle.png">
-      <Filter>Assets\Textures</Filter>
+      <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
     <Image Include="Cell_Unknown.png">
-      <Filter>Assets\Textures</Filter>
+      <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
     <Image Include="Cell_Unknown_Open.png">
-      <Filter>Assets\Textures</Filter>
+      <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
     <Image Include="Cell_Mine.png">
-      <Filter>Assets\Textures</Filter>
+      <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
     <Image Include="Cell_Mine_Red.png">
-      <Filter>Assets\Textures</Filter>
+      <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
     <Image Include="Cell_Mine_X.png">
-      <Filter>Assets\Textures</Filter>
+      <Filter>Resource Files\Assets\Textures</Filter>
     </Image>
   </ItemGroup>
 </Project>
