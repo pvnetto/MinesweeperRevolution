@@ -1,15 +1,15 @@
 #include "GameManager.h"
 #include "GameOverCanvas.h"
+#include "Board.h"
 
 GameManager::GameManager() { }
 
 GameManager::~GameManager() { }
 
-void GameManager::startGame(int rowCount, int colCount, int numMines) {
-	isGameOver = false;
+void GameManager::start(int rowCount, int colCount, int numMines) {
 }
 
-void GameManager::endGame(BaseContext& ctx) {
+void GameManager::gameOver(BaseContext& ctx) {
 	if (!isGameOver) {
 		isGameOver = true;
 
@@ -18,6 +18,17 @@ void GameManager::endGame(BaseContext& ctx) {
 			gameOverCanvas->setActive(true);
 		}
 	}
+}
+
+void GameManager::restart(BaseContext & ctx) {
+	isGameOver = false;
+	currentGameTime = 0.0;
+
+	Board* board = ctx.findEntity<Board>();
+	board->reset();
+
+	GameOverCanvas* gameOverCanvas = ctx.findEntity<GameOverCanvas>();
+	gameOverCanvas->setActive(false);
 }
 
 bool GameManager::getGameOver() {

@@ -1,5 +1,6 @@
 #pragma once
 #include "InteractableEntity.h"
+#include "GameManager.h"
 
 class Button : public InteractableEntity {
 public:
@@ -11,7 +12,8 @@ public:
 	class RestartAction : public ButtonAction {
 	public:
 		virtual void action(BaseContext&ctx) override {
-			printf("Restarting....");
+			GameManager* gm = ctx.findEntity<GameManager>();
+			gm->restart(ctx);
 		}
 	};
 

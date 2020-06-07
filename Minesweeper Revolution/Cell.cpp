@@ -71,7 +71,7 @@ void Cell::open(BaseContext & ctx) {
 		switchState(CellMineState::getInstance());
 
 		GameManager* gm = ctx.findEntity<GameManager>();
-		gm->endGame(ctx);
+		gm->gameOver(ctx);
 	}
 	else {
 		switchState(CellOpenState::getInstance());

@@ -147,6 +147,7 @@
     <ClInclude Include="BaseContext.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="CanvasEntity.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="CellFlaggedState.h" />
     <ClInclude Include="CellIdleState.h" />

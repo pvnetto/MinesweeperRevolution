@@ -38,27 +38,29 @@ GameOverCanvas::~GameOverCanvas() {
 
 
 void GameOverCanvas::handleEvents(BaseContext& ctx, const sf::RenderWindow& window, const sf::Event& evt) {
-	sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-	sf::Vector2f mousePosF = sf::Vector2f(mousePos.x, mousePos.y);
-	sf::Vector2f mousePosWorld = window.mapPixelToCoords(mousePos);
+	if (inputEnabled) {
+		sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+		sf::Vector2f mousePosF = sf::Vector2f(mousePos.x, mousePos.y);
+		sf::Vector2f mousePosWorld = window.mapPixelToCoords(mousePos);
 
-	for (auto it = entities.begin(); it != entities.end(); it++) {
-		auto entity = *it;
-		if (entity->getShape()->getGlobalBounds().contains(mousePosWorld)) {
-			if (evt.type == sf::Event::MouseButtonReleased) {
-				if (evt.mouseButton.button == sf::Mouse::Left) {
-					entity->handleAction(Action::LEFT_CLICK, ctx);
+		for (auto it = entities.begin(); it != entities.end(); it++) {
+			auto entity = *it;
+			if (entity->getShape()->getGlobalBounds().contains(mousePosWorld)) {
+				if (evt.type == sf::Event::MouseButtonReleased) {
+					if (evt.mouseButton.button == sf::Mouse::Left) {
+						entity->handleAction(Action::LEFT_CLICK, ctx);
+					}
+					else if (evt.mouseButton.button == sf::Mouse::Right) {
+						entity->handleAction(Action::ALT_CLICK, ctx);
+					}
 				}
-				else if (evt.mouseButton.button == sf::Mouse::Right) {
-					entity->handleAction(Action::ALT_CLICK, ctx);
+				else {
+					entity->handleAction(Action::MOUSE_ENTER, ctx);
 				}
 			}
 			else {
-				entity->handleAction(Action::MOUSE_ENTER, ctx);
+				entity->handleAction(Action::MOUSE_LEAVE, ctx);
 			}
-		}
-		else {
-			entity->handleAction(Action::MOUSE_LEAVE, ctx);
 		}
 	}
 }

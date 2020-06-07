@@ -41,7 +41,7 @@ void Button::draw(sf::RenderWindow & window) {
 	window.draw(btnText);
 }
 
-sf::Shape * Button::getShape() {
+sf::Shape* Button::getShape() {
 	return &btnShape;
 }
 

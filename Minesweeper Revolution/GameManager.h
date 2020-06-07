@@ -5,7 +5,7 @@
 class GameManager : public Entity {
 private:
 	bool isGameOver = false;
-	float currentGameTime;
+	float currentGameTime = 0.0;
 
 public:
 	GameManager();
@@ -13,8 +13,9 @@ public:
 
 	virtual void draw(sf::RenderWindow& window) override { };
 
-	void startGame(int rowCount, int colCount, int numMines);
-	void endGame(BaseContext& ctx);
+	void start(int rowCount, int colCount, int numMines);
+	void gameOver(BaseContext& ctx);
+	void restart(BaseContext& ctx);
 
 	bool getGameOver();
 };

@@ -1,10 +1,10 @@
 #pragma once
-#include "Entity.h"
+#include "CanvasEntity.h"
 #include "Button.h"
 
 class BaseContext;
 
-class GameOverCanvas : public Entity {
+class GameOverCanvas : public CanvasEntity {
 private:
 	sf::RectangleShape background;
 	sf::Font font;
@@ -17,7 +17,7 @@ public:
 	GameOverCanvas(const sf::RenderWindow & window);
 	~GameOverCanvas();
 
-	void handleEvents(BaseContext& ctx, const sf::RenderWindow& window, const sf::Event& evt);
+	virtual void handleEvents(BaseContext& ctx, const sf::RenderWindow& window, const sf::Event& evt) override;
 	virtual void draw(sf::RenderWindow& window) override;
 
 };

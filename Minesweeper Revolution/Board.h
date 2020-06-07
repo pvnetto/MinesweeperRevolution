@@ -1,14 +1,13 @@
 #pragma once
-#include "Entity.h"
+#include "CanvasEntity.h"
 #include "Cell.h"
 #include "SFML/Graphics.hpp"
 #include <iostream>
 
 class BaseContext;
 
-class Board : public Entity {
+class Board : public CanvasEntity {
 private:
-	// TODO: Refactor to grid template class
 	Cell** cells;
 
 	// Board Dimensions
@@ -30,12 +29,11 @@ public:
 	~Board();
 
 	void draw(sf::RenderWindow& window);
-	void handleEvents(BaseContext& ctx, const sf::RenderWindow& window, const sf::Event& evt);
+	virtual void handleEvents(BaseContext& ctx, const sf::RenderWindow& window, const sf::Event& evt) override;
 
 	void generateBoard(int rowCount, int colCount, int numMines);
 	void revealAdjacent(int idx, BaseContext& ctx);
-	//void clearBoard();
-	//void resetBoard();
+	void reset();
 
 	int getCellCount();
 
