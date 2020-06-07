@@ -4,10 +4,23 @@
 class BaseContext {
 protected:
 	std::vector<Entity*> entities;
-	//virtual void handleEvents() = 0;
 
 public:
 	virtual void handleEvents(const sf::RenderWindow& window, const sf::Event& evt) = 0;
 	virtual void draw(sf::RenderWindow& window) = 0;
 
+	template<class T>
+	T findEntity();
 };
+
+template<class T>
+T BaseContext::findEntity() {
+	for (auto iter = entities.begin(); iter != entities.end(); iter++) {
+		T castEntity = dynamic_cast<T>(*(iter));
+		if (castEntity) {
+			return castEntity;
+		}
+	}
+
+	return nullptr;
+}

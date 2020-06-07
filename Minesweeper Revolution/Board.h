@@ -1,9 +1,10 @@
 #pragma once
+#include "Entity.h"
 #include "Cell.h"
 #include "SFML/Graphics.hpp"
 #include <iostream>
 
-class Board {
+class Board : public Entity {
 private:
 	// TODO: Refactor to grid template class
 	Cell** cells;

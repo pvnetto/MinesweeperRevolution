@@ -1,6 +1,7 @@
 #pragma once
+#include "Entity.h"
 
-class GameManager {
+class GameManager : public Entity {
 private:
 	bool gameOver;
 	float currentGameTime;
@@ -8,6 +9,8 @@ private:
 public:
 	GameManager();
 	~GameManager();
+
+	virtual void draw(sf::RenderWindow& window) override {};
 
 	void startGame(int rowCount, int colCount, int numMines);
 	void endGame();
