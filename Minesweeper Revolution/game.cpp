@@ -1,5 +1,5 @@
 #include "ContextManager.h"
-#include "GameContext.h"
+#include "MainMenuContext.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -11,7 +11,7 @@ int main() {
 	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Minesweeper Revolution", windowStyles);
 
 	ContextManager ctxManager(window);
-	ctxManager.switchContext(new GameContext(window));
+	ctxManager.switchContext<MainMenuContext>();
 	ctxManager.run();
 
 

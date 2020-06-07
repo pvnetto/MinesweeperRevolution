@@ -1,10 +1,13 @@
 #include "GameContext.h"
 #include "GameManager.h"
 #include "GameOverCanvas.h"
+#include "ContextManager.h"
+
+#include "MainMenuContext.h"
 
 #define BOARD_HEIGHT 900.0
 
-GameContext::GameContext(sf::RenderWindow & window) {
+GameContext::GameContext(ContextManager& ctxManager, sf::RenderWindow & window) : BaseContext(ctxManager) {
 	float windowWidth = float(window.getSize().x);
 	float windowHeight = float(window.getSize().y);
 
@@ -50,5 +53,9 @@ void GameContext::handleEvents(const sf::RenderWindow & window, const sf::Event 
 	}
 	if (gameOverCanvas) {
 		gameOverCanvas->handleEvents(*this, window, evt);
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+		getContextManager()->switchContext<MainMenuContext>();
 	}
 }

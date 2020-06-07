@@ -1,6 +1,7 @@
 #pragma once
 
 #include "BaseContext.h"
+#include <type_traits>
 
 class ContextManager {
 private:
@@ -10,6 +11,29 @@ private:
 public:
 	ContextManager(sf::RenderWindow& window);
 
-	void switchContext(BaseContext* newContext);
+	///	<summary>
+	/// Handles game loop logic, delegates events and rendering to the current context.
+	/// </summary>
 	void run();
+
+	///	<summary>
+	/// Deletes current context and switches to a new one.
+	/// </summary>
+	template<class T>
+	void switchContext();
 };
+
+template<class T>
+inline void ContextManager::switchContext() {
+	// Checks if T inherits from BaseContext
+	static_assert(std::is_base_of<BaseContext, T>::value, "T must inherit from BaseContext.");
+
+	T* newContext = new T(*this, *window);
+
+	if (this->currentContext) {
+		delete currentContext;
+		currentContext = nullptr;
+	}
+
+	this->currentContext = newContext;
+}

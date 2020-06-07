@@ -138,6 +138,7 @@
     <ClCompile Include="GameContext.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameOverCanvas.cpp" />
+    <ClCompile Include="MainMenuContext.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Snippets.cpp" />
   </ItemGroup>
@@ -160,6 +161,7 @@
     <ClInclude Include="GameContext.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameOverCanvas.h" />
+    <ClInclude Include="MainMenuContext.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Message.h" />
   </ItemGroup>

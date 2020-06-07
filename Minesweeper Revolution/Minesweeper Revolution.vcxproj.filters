@@ -95,6 +95,9 @@
     <ClCompile Include="GameManager.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenuContext.cpp">
+      <Filter>Source\Context</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -156,6 +159,9 @@
     </ClInclude>
     <ClInclude Include="InteractableEntity.h">
       <Filter>Source\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuContext.h">
+      <Filter>Source\Context</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

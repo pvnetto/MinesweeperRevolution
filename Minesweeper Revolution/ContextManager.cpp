@@ -5,15 +5,6 @@ ContextManager::ContextManager(sf::RenderWindow & window) {
 	this->window = &window;
 }
 
-void ContextManager::switchContext(BaseContext* newContext) {
-	if (this->currentContext) {
-		delete currentContext;
-		currentContext = nullptr;
-	}
-
-	this->currentContext = newContext;
-}
-
 void ContextManager::run() {
 	sf::Clock clock;
 

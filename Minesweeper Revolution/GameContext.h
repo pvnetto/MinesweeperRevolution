@@ -9,7 +9,7 @@ private:
 	GameOverCanvas* gameOverCanvas = nullptr;
 
 public:
-	GameContext(sf::RenderWindow& window);
+	GameContext(ContextManager& ctxManager, sf::RenderWindow & window);
 	virtual ~GameContext();
 
 	virtual void handleEvents(const sf::RenderWindow& window, const sf::Event& evt) override;
