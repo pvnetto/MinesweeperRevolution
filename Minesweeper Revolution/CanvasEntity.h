@@ -3,8 +3,8 @@
 #include "InteractableEntity.h"
 
 /// <summary>
-/// Base class for entities that draw other Entities and SFML/Drawable objects. Child classes
-/// are expected to initialize all objects they're going to handle and add them to their respective list.
+/// Base class for entities that draw other Entities and SFML/Drawable objects. Child classes are
+/// expected to initialize all objects they're going to handle and add them to the entities, drawables lists.
 /// </summary>
 class CanvasEntity : public Entity {
 private:

@@ -32,7 +32,7 @@ private:
 
 public:
 	Board(const sf::RenderWindow& window, sf::View& view);
-	~Board();
+	virtual ~Board();
 
 	/// <summary>
 	/// Generates a grid of cells with the specified dimensions.
@@ -116,5 +116,9 @@ private:
 	/// Populates cells with mines and their adjacent mine count.
 	/// </summary>
 	void populateMines(int cellIdx);
+
+	/// <summary>
+	/// Marks a cell as mine and increments the mine count for its adjacent cells.
+	/// </summary>
 	void placeMine(int mineIdx);
 };

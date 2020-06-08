@@ -14,7 +14,6 @@ Board::Board(const sf::RenderWindow& window, sf::View& view) {
 }
 
 Board::~Board() {
-	deleteCanvas();
 	delete[] cells;
 }
 
