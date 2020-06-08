@@ -35,11 +35,6 @@ GameContext::GameContext(ContextManager& ctxManager, sf::RenderWindow & window, 
 	entities.push_back(gameOverCanvas);
 
 	entities.push_back(new GameManager());
-
-	Board* boardEntity = findEntity<Board>();
-	if (boardEntity) {
-		boardEntity->print();
-	}
 }
 
 GameContext::~GameContext() {
