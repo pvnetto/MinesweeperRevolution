@@ -2,6 +2,9 @@
 #include "BaseContext.h"
 #include <type_traits>
 
+///	<summary>
+/// Contains logic for context execution and switching.
+/// </summary>
 class ContextManager {
 private:
 	BaseContext* currentContext = nullptr;
