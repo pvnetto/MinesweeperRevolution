@@ -6,6 +6,12 @@ This project was made with C++ using the [Visual Studio Community 2017](https://
 
 ## Screenshots
 
+![Main Menu](/Screenshots/msrevo_main_menu.png)
+
+![In-Game](/Screenshots/msrevo_ingame.png)
+
+![Game Over](/Screenshots/msrevo_gameover.png)
+
 ## Running the project
 
 ### Dependencies
